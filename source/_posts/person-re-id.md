@@ -1,7 +1,7 @@
 ---
 title: Person Re-identiﬁcation:Past, Present and Future论文阅读笔记
 date: 
-tags:[阅读笔记]
+tags: [阅读笔记]
 categories: "阅读笔记"
 ---
 
