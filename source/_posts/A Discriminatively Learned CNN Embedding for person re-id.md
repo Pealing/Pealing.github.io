@@ -2,7 +2,7 @@
 title: A Discriminatively Learned CNN Embedding for Person Re-identification 论文阅读笔记
 date: 
 tags:[阅读笔记]
-categories: ”阅读笔记“
+categories: "阅读笔记"
 ---
 
 # 前言
