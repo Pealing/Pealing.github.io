@@ -1,7 +1,8 @@
 ---
-title:<Pose-Normalized Image Generation for Person Re-identification>阅读笔记
-date:
-tag:论文笔记
+title: Pose-Normalized Image Generation for Person Re-identification论文阅读笔记
+date: 
+tags:[阅读笔记]
+categories: ”阅读笔记“
 ---
 
 # 前言

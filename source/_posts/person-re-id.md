@@ -1,7 +1,8 @@
 ---
-title:<Person Re-identiﬁcation: Past, Present and Future>阅读笔记
-date::
-tags:论文笔记
+title: Person Re-identiﬁcation: Past, Present and Future论文阅读笔记
+date: 
+tags:[阅读笔记]
+categories: ”阅读笔记“
 ---
 
 # Person Re-identiﬁcation: Past, Present and Future
