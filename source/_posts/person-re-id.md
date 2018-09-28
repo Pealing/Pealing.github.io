@@ -5,6 +5,12 @@ tags: [阅读笔记]
 categories: "阅读笔记"
 ---
 
+# 前言
+
+> 论文阅读笔记
+
+<!--more-->
+
 # Person Re-identiﬁcation: Past, Present and Future
 
 ## Abstract
