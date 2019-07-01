@@ -79,3 +79,54 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+theme_config:
+  # Site Information Settings
+  rss: false
+  footer:
+    icon:
+      name: heart
+      animated: true
+      color: "#808080"
+  
+  # Menu Settings
+  menu:
+    home: / || home
+    # about: /about/ || user
+    archives: /archives/ || archive
+    categories: /categories/ || th
+    tags: /tags/ || tags
+
+  # Scheme Settings
+  scheme: Pisces
+
+  # Sidebar Settings
+  social:
+    GitHub: https://github.com/Pealing || github
+    RSS: atom.xml || rss
+  social_icons:
+    enable: true
+    icons_only: true
+    transition: false
+  links_layout: inline
+  links:
+    Yisa's Blog: http://yisaer.github.io/
+    Yvan's Blog: https://yyyyvan.github.io/
+    Roll's Blog: https://rollroll.me/
+    Tangl's Blog: https://langt.top/
+  avatar:
+    url: /uploads/avatar.jpg
+
+  # Font Settings
+  font:
+    enable: true
+    global:
+      external: true
+      family: Monda
+    logo:
+      external: true
+      family: Yesteryear
+
+  # Third Party Services Settings
+  math:
+    enable: true
