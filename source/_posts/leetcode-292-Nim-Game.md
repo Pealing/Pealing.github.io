@@ -1,6 +1,7 @@
 ---
 title: leetcode 292. Nim Game
 date: 2017-05-06 19:14:11
+updated: 2017-05-06 19:14:11
 tags: [c++]
 categories: leetcode
 ---

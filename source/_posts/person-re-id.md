@@ -1,6 +1,7 @@
 ---
 title: Person Re-identiﬁcation:Past, Present and Future论文阅读笔记
-date: 
+date: 2019-06-30 08:00:00
+updated: 2019-06-30 08:00:00
 tags: [阅读笔记]
 categories: "阅读笔记"
 ---

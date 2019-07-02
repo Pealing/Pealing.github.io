@@ -1,6 +1,7 @@
 ---
 title: leetcode 566. Reshape the Matrix
 date: 2017-05-01 23:27:40
+updated: 2017-05-01 23:27:40
 tags: [C++]
 categories: leetcode
 ---

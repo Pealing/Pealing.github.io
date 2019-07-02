@@ -1,6 +1,7 @@
 ---
 title: leecode 136. Single Number
 date: 2017-05-06 19:47:10
+updated: 2017-05-06 19:47:10
 tags: [c++]
 categories: leetcode
 ---

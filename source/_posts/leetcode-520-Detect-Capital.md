@@ -1,6 +1,7 @@
 ---
 title: leetcode 520. Detect Capital
 date: 2017-05-08 13:10:13
+updated: 2017-05-08 13:10:13
 tags: [c++]
 categories: leetcode
 ---
