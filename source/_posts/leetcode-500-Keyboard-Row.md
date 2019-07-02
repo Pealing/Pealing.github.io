@@ -1,6 +1,7 @@
 ---
 title: leetcode 500. Keyboard Row
 date: 2017-03-19 20:01:13
+updated: 2017-03-19 20:01:13
 tags: [Python]
 categories: leetcode
 ---

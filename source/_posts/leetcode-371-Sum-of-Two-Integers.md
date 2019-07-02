@@ -1,5 +1,7 @@
+---
 title: leetcode 371. Sum of Two Integers
 date: 2017-05-18 17:20:49
+updated: 2017-05-18 17:20:49
 tags: [c++]
 categories: leetcode
 ---

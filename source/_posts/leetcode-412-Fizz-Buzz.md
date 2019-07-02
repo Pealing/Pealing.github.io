@@ -1,6 +1,7 @@
 ---
 title: leetcode 412. Fizz Buzz
 date: 2017-03-23 19:29:26
+updated: 2017-03-23 19:29:26
 tags: [C++]
 categories: leetcode
 ---

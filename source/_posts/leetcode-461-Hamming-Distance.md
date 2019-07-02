@@ -1,6 +1,7 @@
 ---
 title: leetcode 461. Hamming Distance
 date: 2017-03-19 14:26:29
+updated: 2017-03-19 14:26:29
 tags: [C++,Python]
 categories: leetcode
 ---

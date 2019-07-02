@@ -1,6 +1,7 @@
 ---
 title: leetcode 496. Next Greater Element I
 date: 2017-05-03 22:27:20
+updated: 2017-05-03 22:27:20
 tags: [c++]
 categories: leetcode
 ---
