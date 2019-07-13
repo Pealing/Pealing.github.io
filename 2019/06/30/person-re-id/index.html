@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Yesteryear:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/uploads/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言  论文阅读笔记">
+<meta name="keywords" content="阅读笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Person Re-identiﬁcation:Past, Present and Future论文阅读笔记">
+<meta property="og:url" content="http://yoursite.com/2019/06/30/person-re-id/index.html">
+<meta property="og:site_name" content="Pealing&#39;s Blog">
+<meta property="og:description" content="前言  论文阅读笔记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-30T08:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Person Re-identiﬁcation:Past, Present and Future论文阅读笔记">
+<meta name="twitter:description" content="前言  论文阅读笔记">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/06/30/person-re-id/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Person Re-identiﬁcation:Past, Present and Future论文阅读笔记 | Pealing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pealing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/30/person-re-id/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pealing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pealing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Person Re-identiﬁcation:Past, Present and Future论文阅读笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-30 08:00:00" itemprop="dateCreated datePublished" datetime="2019-06-30T08:00:00+00:00">2019-06-30</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/阅读笔记/" itemprop="url" rel="index"><span itemprop="name">阅读笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<blockquote>
+<p>论文阅读笔记</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="person-re-identification-past-present-and-future"><a class="markdownIt-Anchor" href="#person-re-identification-past-present-and-future"></a> Person Re-identiﬁcation: Past, Present and Future</h1>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<h3 id="贡献"><a class="markdownIt-Anchor" href="#贡献"></a> 贡献：</h3>
+<ol>
+<li>介绍person re-ID及其与图片分类和实例检索</li>
+<li>调查广泛的手工制作系统以及基于图像和视频的re-id方法</li>
+<li>描述了大型画框中端到端re-id和快速检索的关键与未来方向</li>
+<li>介绍重要但尚未完善的问题</li>
+</ol>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li>人re-id技术在各方面的学习都遵循 <strong>莱布尼茨定律</strong></li>
+<li>在视频监控中，当被呈现给感兴趣的人(查询)时，人重新标识告诉此人是否在另一个地方(时间)被另一台照相机观察到</li>
+<li>该任务出现的原因：
+<ul>
+<li>公共安全需求的增长</li>
+<li>公园街道等广泛存在摄像机，靠人力去发现和跟踪成本昂贵</li>
+</ul>
+</li>
+<li>视频监控中的re-id可以分为：
+<ul>
+<li>人检测</li>
+<li>人跟踪</li>
+<li>人物检索(大多数工作几种)</li>
+</ul>
+</li>
+</ul>
+<h3 id="organization-of-this-suevey"><a class="markdownIt-Anchor" href="#organization-of-this-suevey"></a> Organization of This Suevey</h3>
+<ul>
+<li>本文主要关注于当前可用或可能在未来可见的不同重标识子任务，而不是非常详细的技术或体系结构</li>
+</ul>
+<h3 id="a-brief-history-of-person-re-id"><a class="markdownIt-Anchor" href="#a-brief-history-of-person-re-id"></a> A Brief History of Person Re-ID</h3>
+<ul>
+<li>任务Re-id起始于多摄像机追踪</li>
+<li><strong>多摄像机跟踪</strong>
+<ul>
+<li>最早利用了贝叶斯估计一个相机中某物体出现的后验性</li>
+<li>外观模型包含了众多特征：颜色、车辆长度、高度和宽度、速度、观察时间等多时空特征</li>
+</ul>
+</li>
+<li><strong>re-id的多相机跟踪</strong>
+<ul>
+<li>2005年第一次提出re-id：重新确定一个人离开视野后重新进入</li>
+<li>在他们的方法中，输入者的ID是由一个近似贝叶斯推理算法计算的后验标签分布确定的。</li>
+</ul>
+</li>
+<li><strong>The independence of re-ID (image-based).</strong>
+<ul>
+<li>“Person reidentification using spatiotemporal appearance,”</li>
+</ul>
+</li>
+<li><strong>Video-based re-ID</strong>
+<ul>
+<li>最初的re-id专注于使用视频替代，后来在2010年，提出了用多帧re-id,其中帧随机选择</li>
+<li>颜色特征被两者都使用，而后者还另外使用了分割模型来检测前景</li>
+<li>对于距离的测算，两者都计算两个图像集中的边界框之间的最小距离，而后者还使用Bhattacharyya距离作为颜色和一般缩影特征</li>
+</ul>
+</li>
+<li><strong>Deep learning for re-ID</strong>
+<ul>
+<li>2014年，使用了Siamese神经网络来确定一堆输入图像是否属于同一ID</li>
+</ul>
+</li>
+</ul>
+<h3 id="relationship-with-classification-and-retrieval"><a class="markdownIt-Anchor" href="#relationship-with-classification-and-retrieval"></a> Relationship with Classification and Retrieval</h3>
+<ul>
+<li>根据训练和测试类之间的关系，人员重新标识位于图像分类和实例检索之间</li>
+<li>可以将人物re-id定位为利用分类和检索两者的优点，一方面使用训练类、判断距离度量或特征嵌入、可以在人物空间中学习</li>
+</ul>
+<h2 id="image-based-person-re-id"><a class="markdownIt-Anchor" href="#image-based-person-re-id"></a> IMAGE-BASED PERSON RE-ID</h2>
+<ul>
+<li>
+<p>Hand-crafted Systems</p>
+<ul>
+<li>在行人检测中，最常用的特征是颜色，而纹理特征则不怎么常用</li>
+<li>在13文章中，行人前景被从背景分割，并且为每个身体部分计算对称轴</li>
+<li>基于人体构型，计算加权颜色直方图（WH）、最大稳定颜色区域（MSCR）和递归高结构斑块（RHSP）。</li>
+</ul>
+</li>
+<li>
+<p>Datasets and Evaluation</p>
+<ul>
+<li>VIPeR\iLIDS\GRID\CAVIAR\PRID2011\WARD\CUHK01\CUHK02\CUHK03\RAiD\PRID 450S\Market-1501，这些数据集分别包含不同类型的视频</li>
+<li>近年来，数据集的发展如下
+<ul>
+<li>数据集规模越来越大</li>
+<li>bounding box的开始采用predestrain detection获得</li>
+<li>收集时使用了更多的相机</li>
+</ul>
+</li>
+<li>验证re-id效果时，常用CMC曲线来表示（查询标识出现在不同大小的候选列表中的概率。）
+<ul>
+<li>因为CMC只能在计算第一次查询，所以当每个查询只有一个ground truth存在的时候，CMC是基本准确的</li>
+</ul>
+</li>
+<li>为了解决多个groud truth的情况，提出了mAP
+<ul>
+<li>CMC和mAP在发现第一个基本事实方面具有相同的能力，但是mAP更具有检索回忆能力。</li>
+</ul>
+</li>
+<li>Re-ID Accuracy Over the Years
+<ul>
+<li>三个主要的见解
+<ul>
+<li>1.从6个数据集可以观察到性能的改进明显趋势</li>
+<li>2.除了VIPeR，深度学习方法在剩下的5个数据集上产生了新的艺术状态。</li>
+<li>3.推测仍有很大的改进空间，特别是当要发布更大的数据集时</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="video-based-person-re-id"><a class="markdownIt-Anchor" href="#video-based-person-re-id"></a> VIDEO-BASED PERSON RE-ID</h2>
+<ul>
+<li>基于视频的方法更加关注多镜头匹配方案和时间信息的集成</li>
+</ul>
+<h3 id="hand-crafted-systems"><a class="markdownIt-Anchor" href="#hand-crafted-systems"></a> Hand-crafted Systems</h3>
+<ul>
+<li>多镜头人物re-id，其中两组帧之间的相似性起着关键性作用</li>
+<li>也可以采用多个身份标识来增强身体部位对齐</li>
+<li>距离度量学习在匹配视频时也很重要</li>
+</ul>
+<h3 id="deeply-learned-systems"><a class="markdownIt-Anchor" href="#deeply-learned-systems"></a> Deeply-learned Systems</h3>
+<ul>
+<li>基于视频的数据量通常大于基于图像的数据集，因为每个轨迹包含多个帧</li>
+<li>基于视频与基于图像的不同之处在于：对于每个匹配单元(视频序列)的多个图像，应该采用多匹配策略或视频池之后的单个匹配策略</li>
+<li>基于池的方法将帧级特征聚合为全局向量，具有更好的可扩展性。</li>
+<li>在本次调查中，我们注意到也许外观和时空模型的区别性组合是未来视频重标识研究的有效解决方案。</li>
+</ul>
+<h3 id="datasets-and-evaluation"><a class="markdownIt-Anchor" href="#datasets-and-evaluation"></a> Datasets and Evaluation</h3>
+<ul>
+<li>multi-short re-ID数据库有：ETH\3DPES\PRID-2011\iLIDS-VID\MARS</li>
+<li>从验证结果来看可以发现：
+<ul>
+<li>1.ETZ数据集已经达到其性能饱和</li>
+<li>2.ILID VID和PRID-2011数据集仍在进行视频Re-ID研究</li>
+<li>3.深度学习方法在基于视频的RID中产生了绝对优越的精度。</li>
+</ul>
+</li>
+</ul>
+<h2 id="future-detection-tracking-and-person-re-id"><a class="markdownIt-Anchor" href="#future-detection-tracking-and-person-re-id"></a> FUTURE: DETECTION, TRACKING AND PERSON RE-ID</h2>
+<h3 id="previous-works"><a class="markdownIt-Anchor" href="#previous-works"></a> Previous Works</h3>
+<ul>
+<li>尽管person re-id来源于多摄像机追踪，但它被认为是一个独立的研究任务。但在未来会结合pedestrian detection and tracking</li>
+<li>特别的，文章认为end-to-end re-ID 系统（spotting a query person from raw videos），把raw videos作为输入，整合pedestrian detection 和tracking，再进行re-identification。</li>
+<li>目前大部分的re-id工作都假定两点：
+<ul>
+<li>给出行人边界框</li>
+<li>手绘边界框</li>
+</ul>
+</li>
+<li>但在实际情况中，上述两种假设可能不成立：一方面，gallery 大小会随着detector threshold而变化。低的阈值会产生更多的bounding boxing（更大的gallery，高的recall，但低的precision），反之亦然。re-ID检测的准确度将会由于不同的阈值，而不问题。另一方面，使用pedestrian detectors，bounding boxes中不可避免的会出现错误（misalignment, miss-detection, and false alarms），这将大大影响re-ID的检测准确性，这现在还很少有人考虑这个问题。</li>
+<li>为了解决上述的第二个问题，尝试使用了CUHK03、Market-1501和MARS。这些数据集不承担完美的检测/跟踪输出，并且是更接近实际应用的一步。</li>
+</ul>
+<h3 id="future-issues"><a class="markdownIt-Anchor" href="#future-issues"></a> Future Issues</h3>
+<ul>
+<li>System Performance Evaluation
+<ul>
+<li>
+<p>对于端到端的re-id来说，没有一个单一正确的协议</p>
+</li>
+<li>
+<p>文章从两方面提出re-id评估问题</p>
+<ul>
+<li>首先，在RID中使用有效的评估指标对行人检测和跟踪至关重要
+<ul>
+<li>AP/MR的计算，这个涉及IoU的值，试验结果表明，IoU阈值取0.7要比取0.5，检测精度更加稳定</li>
+</ul>
+</li>
+<li>评价过程的第二个问题涉及整个系统的RID精度。</li>
+</ul>
+</li>
+<li>
+<p>记住gallery的大小取决于检测器的阈值，其他信息量大且无偏的新的评价度量可以在将来设计。</p>
+</li>
+<li>
+<p>文章给出了另一个端到端re-id评估协议</p>
+<ul>
+<li>在实践中，当被呈现为查询边界框/视频序列时，虽然在某一帧中定位身份并通过行人检测/跟踪来告诉其坐标是件好事，但是系统仅知道身份重新出现在哪个帧中也是可以接受的。</li>
+<li>本质上，确定被查询人出现的确切帧比确定“检测/跟踪+再确认”任务相对容易，因为检测/跟踪错误可能不会产生大的影响</li>
+<li>可以学习检测器/建议书以定位具有松散IoU限制的粗略行人区域，并且更加强调匹配，即，从较大的边界框/时空管中找到特定人</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The Influence of Detector/Tracker on Re-ID
+<ul>
+<li>人员重新身份识别起源于行人跟踪，其中如果确定来自多个摄像机的轨迹具有相同的身份，则将它们相关联</li>
+<li>对于端到端的人物re-id,必须理解检测/跟踪对重新标识的影响，并且提出检测/跟踪方法/数据能够帮助重新标识的方法。
+<ul>
+<li>首先，行人/跟踪误差确实会影响重新标识的准确性，但是其内在机制和可行的解决方案仍然存在挑战。</li>
+<li>其次，我们应该知道，检测和跟踪，如果适当设计，可能有助于re-id</li>
+</ul>
+</li>
+<li>行人检测/跟踪可以帮助重新识别身份或反过来，这似乎并不十分直接，但如果考虑一般图像分类和细粒度分类的类比，我们可能会想到一些线索</li>
+</ul>
+</li>
+</ul>
+<h2 id="future-person-re-id-in-very-large-galleries"><a class="markdownIt-Anchor" href="#future-person-re-id-in-very-large-galleries"></a> FUTURE: PERSON RE-ID IN VERY LARGE GALLERIES</h2>
+<ul>
+<li>近年来Re-ID社区的数据规模明显增加</li>
+<li>无论从研究和应用的角度来看，在大型画廊中重新识别人物应该是未来的一个关键方向。应努力提高准确性和效率问题。</li>
+<li>一方面，描述符和距离度量的鲁棒和大规模学习更为重要。
+<ul>
+<li>虽然当前的方法解决了在非常有限的时间窗中一个或多个相机对之间的重新标识问题，但是相机网络中长时间段的鲁棒性尚未得到充分考虑。</li>
+</ul>
+</li>
+<li>另一方面，效率是这样大规模设置中的另一个重要问题。</li>
+<li>利用图像搜索，我们得到了两个可能提高效率的方向
+<ul>
+<li>Inverted index-based</li>
+<li>Hashing-based</li>
+</ul>
+</li>
+<li>因此，这个调查需要非常大的重新ID数据集，这些数据集将评估重新ID方法和可伸缩算法的可伸缩性，特别是那些使用哈希代码来进一步将这个任务推向真实世界的应用程序的算法</li>
+</ul>
+<h2 id="other-important-yet-under-developed-open-issues"><a class="markdownIt-Anchor" href="#other-important-yet-under-developed-open-issues"></a> OTHER IMPORTANT YET UNDER-DEVELOPED OPEN ISSUES</h2>
+<h3 id="battle-against-data-volumn"><a class="markdownIt-Anchor" href="#battle-against-data-volumn"></a> Battle Against Data Volumn</h3>
+<ul>
+<li>标注大型数据集一直是视觉界关注的焦点。</li>
+<li>这两年发布了几个大的数据集，但仍不能令人满意。于是本文提出两种替代策略帮助绕过数据问题
+<ul>
+<li>首先，如何使用跟踪和检测数据集的注释仍在探索中</li>
+<li>第二个策略是将学习模型从源到目标域的转移学习。</li>
+</ul>
+</li>
+</ul>
+<h3 id="re-ranking-re-id-results"><a class="markdownIt-Anchor" href="#re-ranking-re-id-results"></a> Re-ranking Re-ID Results</h3>
+<ul>
+<li>重新识别过程可以看作是一个检索任务，其中重新排序是提高检索精度的重要步骤</li>
+<li>Re-ranking在Re-ID中仍然是一个开放的方向，在实例检索中得到了广泛的研究</li>
+<li>由于Re-ID是专注于行人，重新排序方法可以具体设计。</li>
+</ul>
+<h3 id="open-world-person-re-id"><a class="markdownIt-Anchor" href="#open-world-person-re-id"></a> Open-World Person Re-ID</h3>
+<ul>
+<li>目前大部分re-id工作都可以被看成是独立任务</li>
+<li>相比之下，open-word的Re-ID系统研究了人的验证问题</li>
+<li>open-word ReID仍然是一项具有挑战性的任务，在低误接受率下的识别率很低，其挑战主要在两个方面
+<ul>
+<li>detection</li>
+<li>recognition</li>
+</ul>
+</li>
+<li>100%的FAR对应于标准近集重新标识，并且其精度受到当前技术状态的限制；较低的FAR伴随着较低的重新标识精度，这是由于真实匹配的召回率低。</li>
+</ul>
+<h2 id="concluding-remarks"><a class="markdownIt-Anchor" href="#concluding-remarks"></a> CONCLUDING REMARKS</h2>
+<ul>
+<li>本文对人的再识别问题进行了综述。首先，简要介绍了人物重标识的历史，描述了其与图像分类和实例检索的异同。然后，回顾现有的基于图像和视频的方法，它们被分类为手工制作和深入学习的系统。</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/阅读笔记/" rel="tag"># 阅读笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/29/统计学习方法-1/" rel="next" title="《统计学习方法》阅读笔记">
+                <i class="fa fa-chevron-left"></i> 《统计学习方法》阅读笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Pealing">
+            
+              <p class="site-author-name" itemprop="name">Pealing</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Pealing" title="GitHub &rarr; https://github.com/Pealing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="/atom.xml" title="RSS &rarr; atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://yisaer.github.io/" title="http://yisaer.github.io/" rel="noopener" target="_blank">Yisa's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yyyyvan.github.io/" title="https://yyyyvan.github.io/" rel="noopener" target="_blank">Yvan's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rollroll.me/" title="https://rollroll.me/" rel="noopener" target="_blank">Roll's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://langt.top/" title="https://langt.top/" rel="noopener" target="_blank">Tangl's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#person-re-identification-past-present-and-future"><span class="nav-number">2.</span> <span class="nav-text"> Person Re-identiﬁcation: Past, Present and Future</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">2.1.</span> <span class="nav-text"> Abstract</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贡献"><span class="nav-number">2.1.1.</span> <span class="nav-text"> 贡献：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.2.</span> <span class="nav-text"> Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#organization-of-this-suevey"><span class="nav-number">2.2.1.</span> <span class="nav-text"> Organization of This Suevey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-brief-history-of-person-re-id"><span class="nav-number">2.2.2.</span> <span class="nav-text"> A Brief History of Person Re-ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#relationship-with-classification-and-retrieval"><span class="nav-number">2.2.3.</span> <span class="nav-text"> Relationship with Classification and Retrieval</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#image-based-person-re-id"><span class="nav-number">2.3.</span> <span class="nav-text"> IMAGE-BASED PERSON RE-ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#video-based-person-re-id"><span class="nav-number">2.4.</span> <span class="nav-text"> VIDEO-BASED PERSON RE-ID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hand-crafted-systems"><span class="nav-number">2.4.1.</span> <span class="nav-text"> Hand-crafted Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deeply-learned-systems"><span class="nav-number">2.4.2.</span> <span class="nav-text"> Deeply-learned Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datasets-and-evaluation"><span class="nav-number">2.4.3.</span> <span class="nav-text"> Datasets and Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#future-detection-tracking-and-person-re-id"><span class="nav-number">2.5.</span> <span class="nav-text"> FUTURE: DETECTION, TRACKING AND PERSON RE-ID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#previous-works"><span class="nav-number">2.5.1.</span> <span class="nav-text"> Previous Works</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#future-issues"><span class="nav-number">2.5.2.</span> <span class="nav-text"> Future Issues</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#future-person-re-id-in-very-large-galleries"><span class="nav-number">2.6.</span> <span class="nav-text"> FUTURE: PERSON RE-ID IN VERY LARGE GALLERIES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other-important-yet-under-developed-open-issues"><span class="nav-number">2.7.</span> <span class="nav-text"> OTHER IMPORTANT YET UNDER-DEVELOPED OPEN ISSUES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#battle-against-data-volumn"><span class="nav-number">2.7.1.</span> <span class="nav-text"> Battle Against Data Volumn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re-ranking-re-id-results"><span class="nav-number">2.7.2.</span> <span class="nav-text"> Re-ranking Re-ID Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-world-person-re-id"><span class="nav-number">2.7.3.</span> <span class="nav-text"> Open-World Person Re-ID</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#concluding-remarks"><span class="nav-number">2.8.</span> <span class="nav-text"> CONCLUDING REMARKS</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pealing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

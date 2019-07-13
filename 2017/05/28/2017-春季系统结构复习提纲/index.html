@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Yesteryear:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/uploads/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言 嗯，复习提纲大家懂的。老规矩，写了没考考了没写我不负责。 顺便说一句，如果之后有小学弟小学妹要看这份提纲的话， 记得结合你们老师画的重点， 据说每年考题范围和重点都会有变动的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-春季系统结构复习提纲">
+<meta property="og:url" content="http://yoursite.com/2017/05/28/2017-春季系统结构复习提纲/index.html">
+<meta property="og:site_name" content="Pealing&#39;s Blog">
+<meta property="og:description" content="前言 嗯，复习提纲大家懂的。老规矩，写了没考考了没写我不负责。 顺便说一句，如果之后有小学弟小学妹要看这份提纲的话， 记得结合你们老师画的重点， 据说每年考题范围和重点都会有变动的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-05-28T20:12:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017-春季系统结构复习提纲">
+<meta name="twitter:description" content="前言 嗯，复习提纲大家懂的。老规矩，写了没考考了没写我不负责。 顺便说一句，如果之后有小学弟小学妹要看这份提纲的话， 记得结合你们老师画的重点， 据说每年考题范围和重点都会有变动的。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2017/05/28/2017-春季系统结构复习提纲/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>2017-春季系统结构复习提纲 | Pealing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pealing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/28/2017-春季系统结构复习提纲/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pealing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pealing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2017-春季系统结构复习提纲
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-28 20:12:46" itemprop="dateCreated datePublished" datetime="2017-05-28T20:12:46+00:00">2017-05-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/春季复习提纲/" itemprop="url" rel="index"><span itemprop="name">春季复习提纲</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<pre><code>嗯，复习提纲大家懂的。老规矩，写了没考考了没写我不负责。
+顺便说一句，如果之后有小学弟小学妹要看这份提纲的话，
+记得结合你们老师画的重点，
+据说每年考题范围和重点都会有变动的。
+</code></pre>
+<a id="more"></a>
+<ul>
+<li>题型：选择、判断、简答、计算、综合题</li>
+</ul>
+<h1 id="第一章计算机系统结构导论"><a class="markdownIt-Anchor" href="#第一章计算机系统结构导论"></a> 第一章·计算机系统结构导论</h1>
+<h5 id="透明性"><a class="markdownIt-Anchor" href="#透明性"></a> 透明性</h5>
+<ul>
+<li><em>系统结构</em>是指计算机系统中对各级之间界面的定义及其上、下功能的分派。因此，各级都有其自己的系统结构。</li>
+<li>各级之间存在<em>透明性</em>。</li>
+<li><em>透明性</em>
+<ul>
+<li>确实存在</li>
+<li>无法检测和设置</li>
+<li>在计算机系统中，低层的概念性结构和功能特性，对高层来说是透明的。</li>
+<li>从机器（汇编）语言程序员角度看，透明的是：指令缓冲寄存器、时标发生器、乘法器、主存地址寄存器、指令地址寄存器、；</li>
+<li>不透明的是：条件码寄存器、磁盘、通用寄存器、中断字寄存器；</li>
+</ul>
+</li>
+</ul>
+<h5 id="计算机系统结构-组成和实现三者的关系"><a class="markdownIt-Anchor" href="#计算机系统结构-组成和实现三者的关系"></a> 计算机系统结构、组成和实现三者的关系</h5>
+<ul>
+<li>系统机构是（1）__________________。</li>
+<li>计算机组成是（2）________________。</li>
+<li>计算机实现是（3）________________。</li>
+<li>指令系统的功能的确定属于（4）______</li>
+<li>而指令的实现（如取指、取操作数、运算送结果、时序属于）属于（5）________</li>
+<li>实现这些指令功能的具体电路、器件设计及装配技术等属于（6）_________。</li>
+</ul>
+<hr>
+<p>答案：<br>
+(1)指对机器语言计算机的软、硬件功能分配和对计算机系统的软、硬件界面的定义。<br>
+(2)计算机系统结构的逻辑实现<br>
+(3)计算机组成的物理实现<br>
+(4)系统结构<br>
+(5)组成<br>
+(6)实现</p>
+<hr>
+<ul>
+<li>是否需要乘除指令属于(1)_______。</li>
+<li>乘除指令是用专门的乘法器、除法器实现，还是用加法器累加配上移位器属于(2)_______。</li>
+<li>乘法器、除法器、或加法器的物理实现属于(3)_______。</li>
+<li>主存、主存容量和编制方式（按位、按字节或者按字访问）的确定属于(4)_____。</li>
+<li>主存的速度、逻辑结构、性能价格比等属于(5)________。</li>
+<li>存储器芯片选定、片选译码电路设计、主存不见组成链接等则属于(6)______。</li>
+</ul>
+<hr>
+<p>答案：(1)(4)系统结构、(2)(5)组成、(3)(6)实现。</p>
+<h5 id="模拟和仿真"><a class="markdownIt-Anchor" href="#模拟和仿真"></a> 模拟和仿真</h5>
+<ul>
+<li>用 <em>机器语言程序</em> 解释实现程序移植的方法称为 <em>模拟</em></li>
+<li>用 <em>微程序</em> 直接解释另一种机器的指令系统称为 <em>仿真</em></li>
+</ul>
+<h5 id="软-硬件取舍的基本原则"><a class="markdownIt-Anchor" href="#软-硬件取舍的基本原则"></a> 软、硬件取舍的基本原则</h5>
+<ul>
+<li>软件的特点：<em>灵活性</em>
+<ul>
+<li>提高软件功能比例可以提高系统的灵活性和适应性（√）</li>
+<li>软件提高系统的解题速度、性价比（X）</li>
+<li>提高硬件功能比例可以提高运算速度、减小存储容量（√）</li>
+</ul>
+</li>
+</ul>
+<h1 id="第二章计算机系统结构的合成"><a class="markdownIt-Anchor" href="#第二章计算机系统结构的合成"></a> 第二章·计算机系统结构的合成</h1>
+<h5 id="浮点数的表示"><a class="markdownIt-Anchor" href="#浮点数的表示"></a> 浮点数的表示</h5>
+<ul>
+<li>尾数（r_m）
+<ul>
+<li>尾数决定精度。</li>
+</ul>
+</li>
+<li>阶码
+<ul>
+<li>阶码影响数值的表示范围。</li>
+</ul>
+</li>
+</ul>
+<h5 id="指令优化"><a class="markdownIt-Anchor" href="#指令优化"></a> 指令优化</h5>
+<pre><code>指令由操作码和地址码组成。
+</code></pre>
+<ul>
+<li>
+<p>要会怎么使用扩展编码，码扩展！</p>
+</li>
+<li>
+<p>之80和百分之20的定律</p>
+<ul>
+<li>从数据分析可见，程序的80%是存取、转移、算逻运算等简单指令，复杂指令的使用仅占20%。但为复杂指令而设置的微程序却占微程序ROM的80%。</li>
+<li>复杂指令增加而使CPU结构趋于复杂，对编译程序的优化好处不大，因此提出了精简指令集计算机RISC，传统计算机称为复杂指令集计算机CISC。</li>
+</ul>
+</li>
+</ul>
+<h1 id="第三章存储系统结构"><a class="markdownIt-Anchor" href="#第三章存储系统结构"></a> 第三章·存储系统结构</h1>
+<h5 id="替换算法的分析"><a class="markdownIt-Anchor" href="#替换算法的分析"></a> 替换算法的分析</h5>
+<ul>
+<li>唯一一种不属于堆栈型的替换算法是___________
+<ul>
+<li>先进先出</li>
+<li>最近最少使用</li>
+<li>最优</li>
+<li>最久未使用</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>答案：先进先出</p>
+<h5 id="解决cache不一致性"><a class="markdownIt-Anchor" href="#解决cache不一致性"></a> 解决Cache不一致性</h5>
+<ul>
+<li>写回法
+<ul>
+<li>仅在被替换时才将修改过的Cache块写回主存</li>
+<li>如果程序执行过程中要对某块的某单元进行写操作，则只向Cache写入，并标志注明，直至该块在替换中被排挤出来，才将该块写回主存，代替未经修改的原本。</li>
+</ul>
+</li>
+<li>写直达法
+<ul>
+<li>修改Cache的同时也直接写入主存</li>
+<li>在写入Cache的同时也写入主存，使原本和副本同时修改。</li>
+</ul>
+</li>
+<li>写回法的写操作速度较快，但在该块回到主存之前，主存中的原本由于未及时修改而失去时效。</li>
+<li>写直达的实现方法简单，而且能随时保持原本的时效，这对于多处理机共享一个原本特别重要。</li>
+<li>从可靠性讲，写直达法比写回法要好。当Cache出错，写直达法可以依靠主存进行纠正，因此Cache中只需要一位奇偶校验位。写回法由于有效的块（行）只在Cache中，因此在Cache内需要采用纠错码，增加冗余信息位来提高其内容的可靠性。</li>
+<li>从实现成本上，写回发比写直达法要低得多。写直达法需要较多的缓冲器和大量其他辅助逻辑减少cpu为等待写主存完成所耗费的时间。</li>
+</ul>
+<h1 id="第四章流水线结构"><a class="markdownIt-Anchor" href="#第四章流水线结构"></a> 第四章·流水线结构</h1>
+<ul>
+<li>流水线是从是时间层面来提高并行性。</li>
+<li>指令的重叠执行，不是提高单条指令的速度，而是提高整体程序。会把一条指令的时间给延长的。</li>
+<li>流水线把一条指令的过程分解成若干个子过程，子过程可以跟其他指令的子过程同时执行。</li>
+</ul>
+<h5 id="流水线的特点"><a class="markdownIt-Anchor" href="#流水线的特点"></a> 流水线的特点</h5>
+<ul>
+<li>可以划分为若干互有联系的子过程（功能段），每个功能段有专用功能部件实现。</li>
+<li>实现子过程层的功能段所需时间尽可能相等，避免因不等产生处理的瓶颈，形成流水线线“断流”</li>
+<li>形成流水处理，需要一段时间准备，称为“通过时间”，只有在此之后流水过程才能够稳定。</li>
+<li>指令流不能顺序执行时，会使流水过程中断，再形成流水过程则需要一段时间，所以流水过程不应常“断流”，否则效率不会很高。</li>
+<li>流水技术适用于大量重复的过程，只有输入端能连续地提供服务，流水线效率才能够充分发挥。</li>
+</ul>
+<p>流水线当中流经时间最长的子过程，称之为瓶颈段/瓶颈子过程。</p>
+<hr>
+<h5 id="流水线的分类"><a class="markdownIt-Anchor" href="#流水线的分类"></a> 流水线的分类</h5>
+<ul>
+<li>按完成的功能分类
+<ul>
+<li>单功能流水线</li>
+<li>多功能流水线</li>
+</ul>
+</li>
+<li>按同一时间内各段时间的连接方式分类
+<ul>
+<li>静态流水线。同一时间内，流水线的各段只能按同一种连接方式工作。</li>
+<li>动态流水点。同一时间内，流水线的各段可按不同运算的连接方式工作。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="非线性流水线处理机"><a class="markdownIt-Anchor" href="#非线性流水线处理机"></a> 非线性流水线处理机</h5>
+<ul>
+<li>
+<p>非线性流水线的表示和线性流水线还有两个明显的不同；</p>
+<ul>
+<li>非线性流水线有反馈线和前馈线。</li>
+<li>其输出端可以不在最后一个功能段，而可能从中间任意一个功能段输出。</li>
+</ul>
+</li>
+<li>
+<p>一张非线性流水线的预约表可能与多张功能连接图对应；一张功能连接图也可能对应多张预约表。</p>
+</li>
+</ul>
+<hr>
+<h5 id="超标量处理机和超流水线"><a class="markdownIt-Anchor" href="#超标量处理机和超流水线"></a> 超标量处理机和超流水线</h5>
+<pre><code>超标量机器是为改善标量指令执行性能而设计的机器，是高性能通用处理器发展的一个方向。
+</code></pre>
+<ul>
+<li>超标量处理机和超流水线的区别：
+<ul>
+<li>超标量通过重复设置，通过开发空间并行性，多个操作部件重复设置。</li>
+<li>超标量方法的实现取决于指令并行执行的程度，主要借助 <em>硬件资源重复</em>工作来实现 <em>空间</em>的并行操作。</li>
+<li>超流水线开发时间的并行性。</li>
+<li>超流水线处理机是通过各部分 <em>硬件的充分重叠工作</em>来提高处理机性能的</li>
+</ul>
+</li>
+<li>超标量处理机·特点
+<ul>
+<li>配置多个性能不同的处理部件，采用多条流水线并行处理。</li>
+<li>同时对若干条指令进行译码，将可执行的指令送往不同部件，达到在一个时钟周期内启动多条指令的目的。</li>
+<li>在程序执行期间由硬件（状态记录部件和调度部件）完成指令调度。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em>重点：</em> 数据相关处理（PPT例题，必考）和 非线性流水线</p>
+<h1 id="第五章并行处理机"><a class="markdownIt-Anchor" href="#第五章并行处理机"></a> 第五章·并行处理机</h1>
+<h5 id="并行性概念"><a class="markdownIt-Anchor" href="#并行性概念"></a> 并行性概念</h5>
+<pre><code>并行性定义为：在同一时刻或同一时间间隔内完成两种或两种以上的性质相同或不同的工作，
+只要在时间上相互重叠，均存在并行性。
+</code></pre>
+<ul>
+<li>
+<p>并行性的等级</p>
+<ul>
+<li>从执行角度，从低到高
+<ul>
+<li>指令内部并行，即指令内部的微操作之间的并行。</li>
+<li>指令间并行，即并行执行两条或多条指令。</li>
+<li>任务级或过程级并行，即并行执行两个或多个过程或任务（程序段）</li>
+<li>作业或程序级并行，即在多个作业或程序间并行。</li>
+</ul>
+</li>
+<li>从处理数据的角度看，从低祷告
+<ul>
+<li>字串位串，同时只对一个字的一位进行处理，不存在并行性；</li>
+<li>字串位并，同时读一个字的所有位进行处理，已开始出现并行性；</li>
+<li>字并位串，同时对多个字的同一位（如位片机）进行处理；</li>
+<li>字并位并（全并行），对多个字的所有位或部分位进行同时处理，这是最高一级的并行。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>计算机系统提高并行性措施的 <em>技术途径</em></p>
+<ul>
+<li>时间重叠
+<ul>
+<li>多个处理过程在时间上互相错开，轮流重叠使用一套硬件的各个部件，以加快部件的周<br>
+转而提高速度，时间重叠原则上不要求重复的硬件设备，能保证计算机系统具有较高的性能价格比；例如指令的重叠。</li>
+</ul>
+</li>
+<li>资源重复
+<ul>
+<li>在并行性概念中引入空间因素，重复设置硬件资源以大幅度提高计算机系统的性能。资源重复已经成为提高系统并行性的有效手段。</li>
+</ul>
+</li>
+<li>资源共享
+<ul>
+<li>利用软件方法，使多个用户分时使用同一个计算机系统。例如，多道程序，分时系统；它是提高计算机系统资源利用率的有效措施。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="单级互连函数"><a class="markdownIt-Anchor" href="#单级互连函数"></a> 单级互连函数</h5>
+<ul>
+<li>三维那边立方体单级互连网络
+<ul>
+<li>8个结点的有3个方体置换函数（3位，每位取反各一种）</li>
+</ul>
+</li>
+<li>混洗单级置换函数
+<ul>
+<li>输入端分成相等的两半，前一半和后一半按需一个隔一个从头至尾依次与输入端相连。</li>
+<li>在这个互联网中，经过 *n=log(2)(N)*次混洗连接后，除了地址码为全0和全1的结点外，其余结点都有与其他结点链接的机会。</li>
+<li>它无法实现地址码为全0或全1的结点与其他结点链接，因此在这个网络内增加交换互连函数Cube,构成 <em>混洗交换单级互连网络</em>。最远的两个结点间链接需要经过n次交换和(n-1)次混洗，所以最大寻径距离为(2n-1)。</li>
+</ul>
+</li>
+</ul>
+<h1 id="第六章多处理机系统"><a class="markdownIt-Anchor" href="#第六章多处理机系统"></a> 第六章·多处理机系统</h1>
+<h5 id="多处理机的基本结构"><a class="markdownIt-Anchor" href="#多处理机的基本结构"></a> 多处理机的基本结构</h5>
+<ul>
+<li>松散耦合多处理机结构
+<ul>
+<li>常用通道或通信线路来实现。</li>
+<li>是低频带的</li>
+</ul>
+</li>
+<li>紧密耦合多处理机机构
+<ul>
+<li>用高速总线或高速开关实现。</li>
+<li>是高频带的。</li>
+</ul>
+</li>
+<li>多处理需要特殊的指令来调试并发关系，控制任务的执行</li>
+<li>它的指令系统必须要支持实现过程级并发功能的高级语言，为有效地处理数据结构提供充分条件。</li>
+<li>它的指令系统内应有连接、循环结构、参数处理、多维下标计算和地址界限检查等指令。</li>
+</ul>
+<hr>
+<ul>
+<li>并行处理任然属于单机系统的范畴</li>
+<li>并行处理机不需要专门的指令来表示并发关系（多处理机需要的）</li>
+</ul>
+<hr>
+<h3 id="simd多核cpu多处理机技术的应用领域"><a class="markdownIt-Anchor" href="#simd多核cpu多处理机技术的应用领域"></a> SIMD\多核CPU\多处理机技术的应用领域</h3>
+<p>1、SIMD是指单指令多数据流，在一条单独的指令中同时执行多个运算操作；<br>
+2、多核CPU是指在一片处理器中包含两个或两个以上独立的内核；<br>
+3、多处理器是由不同芯片上的多个处理器组成；<br>
+4、SIMD一次性获得所有操作数进行运算，适合应用于计算密集型的场合，如大规模的超级计算机；<br>
+5、多核CPU共享使用内存，通过芯片内部总线通信，适合运行小中型任务，如常见的个人计算机。<br>
+6、多处理器使用各自独立的线程和缓存管理，适合运行多个大型程序，如较高端的个人计算机。</p>
+<h1 id="重点大题"><a class="markdownIt-Anchor" href="#重点大题"></a> 重点·大题</h1>
+<ul>
+<li>
+<p>非线性流水线</p>
+<ul>
+<li>根据给的预约表找到冲突向量把状态图画出来，找到所有的循环，算出平均启动时间最短的循环</li>
+<li>简单循环：每个状态只出现一次的等待时间循环</li>
+<li>迫切循环：从各自初态状态输出的边缘都具有最小等待时间，即平均等待时间比其他等待时间更小。首先必须是简单循环，其次平均等待时间比其他简单循环更小。</li>
+</ul>
+</li>
+<li>
+<p>数据相关</p>
+<ul>
+<li>根据例子找出所有的相关，使用其中一个调度策略&quot;顺序调度，乱序发射&quot;的调度策略,画出时空图，然后得出整体程序的运行时间</li>
+<li>顺序发射顺序完成</li>
+<li>顺序发射乱序完成</li>
+<li>数据相关
+<ul>
+<li>执行本条指令的过程中，如果用到的指令、操作数、变址量等是前面指令的执行结果</li>
+</ul>
+</li>
+<li>控制相关
+<ul>
+<li>由条件分支指令、转子程序指令、中断等引起的相关</li>
+</ul>
+</li>
+<li>顺序流动方式
+<ul>
+<li>任务按顺序流入流水线，也按顺序流出流水线</li>
+</ul>
+</li>
+<li>乱序流动方式
+<ul>
+<li>指令流出流水线的顺序与流入流水线的顺序不同</li>
+<li>在乱序流动中可能发生：<em>写写相关</em>、<em>写读相关</em>、<em>读写相关</em></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">TP_{max} = \frac{1}{max{t}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><msub><mi>P</mi><mrow><mi mathvariant="normal">实</mi><mi mathvariant="normal">际</mi><mi mathvariant="normal">吞</mi><mi mathvariant="normal">吐</mi><mi mathvariant="normal">率</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>T</mi><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><mi>n</mi></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">TP_{实际吞吐率} = \frac{TP_{max}}{1 + \frac{m-1}{n}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.15em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">实</span><span class="mord cjk_fallback mtight">际</span><span class="mord cjk_fallback mtight">吞</span><span class="mord cjk_fallback mtight">吐</span><span class="mord cjk_fallback mtight">率</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.5302509999999998em;vertical-align:-0.64182em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8884309999999999em;"><span style="top:-2.59898em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443142857142857em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.13889em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.64182em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> (流水线由m段组成，要完成n个任务)</li>
+<li>加速比：$ S = \frac{m}{1+\frac{m-1}{n}} = \frac{T_{非流水}}{T_{流水}}$</li>
+<li>效率：$ E = \frac{任务占用的时空区}{段总的时空区}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>编码</p>
+</li>
+<li>
+<p>OPENMP代码</p>
+<ul>
+<li>头文件：#include “omp.h”</li>
+<li>omp_set_num_threads(8)  //分配线程数</li>
+<li>#pragma omp parallel for reduction(k)</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/18/leetcode-371-Sum-of-Two-Integers/" rel="next" title="leetcode 371. Sum of Two Integers">
+                <i class="fa fa-chevron-left"></i> leetcode 371. Sum of Two Integers
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/01/2017-春季编译原理复习提纲/" rel="prev" title="2017-春季编译原理复习提纲">
+                2017-春季编译原理复习提纲 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Pealing">
+            
+              <p class="site-author-name" itemprop="name">Pealing</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Pealing" title="GitHub &rarr; https://github.com/Pealing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="/atom.xml" title="RSS &rarr; atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://yisaer.github.io/" title="http://yisaer.github.io/" rel="noopener" target="_blank">Yisa's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yyyyvan.github.io/" title="https://yyyyvan.github.io/" rel="noopener" target="_blank">Yvan's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rollroll.me/" title="https://rollroll.me/" rel="noopener" target="_blank">Roll's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://langt.top/" title="https://langt.top/" rel="noopener" target="_blank">Tangl's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章计算机系统结构导论"><span class="nav-number">2.</span> <span class="nav-text"> 第一章·计算机系统结构导论</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#透明性"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text"> 透明性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算机系统结构-组成和实现三者的关系"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text"> 计算机系统结构、组成和实现三者的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模拟和仿真"><span class="nav-number">2.0.0.0.3.</span> <span class="nav-text"> 模拟和仿真</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软-硬件取舍的基本原则"><span class="nav-number">2.0.0.0.4.</span> <span class="nav-text"> 软、硬件取舍的基本原则</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章计算机系统结构的合成"><span class="nav-number">3.</span> <span class="nav-text"> 第二章·计算机系统结构的合成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#浮点数的表示"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text"> 浮点数的表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指令优化"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text"> 指令优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章存储系统结构"><span class="nav-number">4.</span> <span class="nav-text"> 第三章·存储系统结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#替换算法的分析"><span class="nav-number">4.0.0.0.1.</span> <span class="nav-text"> 替换算法的分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决cache不一致性"><span class="nav-number">4.0.0.0.2.</span> <span class="nav-text"> 解决Cache不一致性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章流水线结构"><span class="nav-number">5.</span> <span class="nav-text"> 第四章·流水线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#流水线的特点"><span class="nav-number">5.0.0.0.1.</span> <span class="nav-text"> 流水线的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#流水线的分类"><span class="nav-number">5.0.0.0.2.</span> <span class="nav-text"> 流水线的分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#非线性流水线处理机"><span class="nav-number">5.0.0.0.3.</span> <span class="nav-text"> 非线性流水线处理机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#超标量处理机和超流水线"><span class="nav-number">5.0.0.0.4.</span> <span class="nav-text"> 超标量处理机和超流水线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章并行处理机"><span class="nav-number">6.</span> <span class="nav-text"> 第五章·并行处理机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#并行性概念"><span class="nav-number">6.0.0.0.1.</span> <span class="nav-text"> 并行性概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单级互连函数"><span class="nav-number">6.0.0.0.2.</span> <span class="nav-text"> 单级互连函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章多处理机系统"><span class="nav-number">7.</span> <span class="nav-text"> 第六章·多处理机系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多处理机的基本结构"><span class="nav-number">7.0.0.0.1.</span> <span class="nav-text"> 多处理机的基本结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#simd多核cpu多处理机技术的应用领域"><span class="nav-number">7.0.1.</span> <span class="nav-text"> SIMD\多核CPU\多处理机技术的应用领域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重点大题"><span class="nav-number">8.</span> <span class="nav-text"> 重点·大题</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pealing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

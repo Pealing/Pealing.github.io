@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Yesteryear:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/uploads/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言  编译没有画重点T T不知道考什么，求重点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-春季编译原理复习提纲">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/2017-春季编译原理复习提纲/index.html">
+<meta property="og:site_name" content="Pealing&#39;s Blog">
+<meta property="og:description" content="前言  编译没有画重点T T不知道考什么，求重点">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-06-01T16:32:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017-春季编译原理复习提纲">
+<meta name="twitter:description" content="前言  编译没有画重点T T不知道考什么，求重点">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/2017-春季编译原理复习提纲/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>2017-春季编译原理复习提纲 | Pealing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pealing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/2017-春季编译原理复习提纲/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pealing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pealing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2017-春季编译原理复习提纲
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-01 16:32:05" itemprop="dateCreated datePublished" datetime="2017-06-01T16:32:05+00:00">2017-06-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/春季复习提纲/" itemprop="url" rel="index"><span itemprop="name">春季复习提纲</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<blockquote>
+<p>编译没有画重点T T不知道考什么，求重点</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="第一章引论"><a class="markdownIt-Anchor" href="#第一章引论"></a> 第一章·引论</h1>
+<h3 id="什么是编译程序"><a class="markdownIt-Anchor" href="#什么是编译程序"></a> 什么是编译程序</h3>
+<blockquote>
+<p>编译程序是现代计算机系统的基本组成部分之一，而且多数计算机系统都配有不止一种高级语言的编译程序，对有些高级语言甚至配饰了几个不同性能的编译程序。</p>
+</blockquote>
+<blockquote>
+<p>一个编译程序就是一个语言翻译程序。它把一种高级语言（称作源语言）书写的程序翻译成另一种低级语言（称作目标语言）的等价的程序。</p>
+</blockquote>
+<h3 id="编译程序的过程"><a class="markdownIt-Anchor" href="#编译程序的过程"></a> 编译程序的过程</h3>
+<ul>
+<li>
+<p>前端：主要依赖于源语言而与目标机器无关，通常包括：</p>
+<ul>
+<li>词法分析</li>
+<li>语法分析</li>
+<li>语义分析</li>
+<li>中间代码生成</li>
+<li>某些优化工作也可以在前端完成，还包括与 <em>前端每个阶段相关</em> 的出错处理工作个符号表管理工作</li>
+</ul>
+</li>
+<li>
+<p>代码优化</p>
+</li>
+<li>
+<p>后端：依赖于目标机器而一般不依赖于源语言，只与中间代码有关的那些阶段的工作，还包括相关出错处理和符号表操作：</p>
+<ul>
+<li>目标代码生成</li>
+<li>以及相关出错处理和符号表操作</li>
+</ul>
+</li>
+<li>
+<p>一个编译过程可由一遍、两遍或多遍完成</p>
+<ul>
+<li>“遍”也称为“趟”是对源程序或其等价的中间语言程序从头到尾扫描并完成规定任务的过程。</li>
+<li>每一遍扫描可由完成上述一个阶段或多个阶段的工作</li>
+<li>对于多遍的编译程序，第一遍的输入是用户书写的源程序，最后一遍的输出是目标程序。</li>
+<li>PL/0语言是单遍的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="解释程序"><a class="markdownIt-Anchor" href="#解释程序"></a> 解释程序</h3>
+<ul>
+<li>编译程序是一个语言处理程序，它把一个高级语言程序翻译成某个机器的汇编语言程序或二进制代码程序，这个二级制代码程序在机器上运行以生成结果。</li>
+<li>解释程序接受某个语言的程序，并立即运行这个源程序
+<ul>
+<li>它的工作模式是一个个的获取、分析并执行源程序语句,一旦第一个语句分析结束，源程序便开始运行并生成结果</li>
+<li>它特别适合程序员以交互方式工作的情况</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="pl0编译程序"><a class="markdownIt-Anchor" href="#pl0编译程序"></a> PL/0编译程序</h3>
+<ul>
+<li>PL/0语言编译系统由编译程序和解释程序两部分组成，分别称为PL/0编译程序和类P-code解释程序。</li>
+<li>PL/0编译程序采用 <em>单遍扫描方式</em>的编译过程，由词法分析程序、语法语义分析程序以及代码生成程序3个独立的过程完成。</li>
+</ul>
+<h1 id="第二章文法和语言"><a class="markdownIt-Anchor" href="#第二章文法和语言"></a> 第二章·文法和语言</h1>
+<h3 id="文法和语言的形式定义"><a class="markdownIt-Anchor" href="#文法和语言的形式定义"></a> 文法和语言的形式定义</h3>
+<ul>
+<li>
+<p>规则</p>
+<ul>
+<li>也称为 <em>重写规则</em>、 <em>产生式</em>、 <em>生成式</em></li>
+</ul>
+</li>
+<li>
+<p>G(V_N,V_T,P,S)</p>
+<ul>
+<li>V_N：非终结符集</li>
+<li>V_t：终结符集</li>
+<li>P：规则集合</li>
+<li>S：识别符或者开始符，是一个非终结符，至少要在一条规则中作为左部出现</li>
+<li>V_N和V_T不含公共的元素</li>
+<li>通常用V表示V_N U V_T，V称为文法G的字母表或者字汇表</li>
+</ul>
+</li>
+<li>
+<p>直接推导和直接规约（P22-23,定义2.2，2.3,2.4)</p>
+</li>
+<li>
+<p>+推导：推导长度n&gt;=1;*推导：推导长度n&gt;=0</p>
+</li>
+<li>
+<p>设G[S]是一个文法，如果符号串x是从识别符号推导出来的，则称x是文法G[S]的 <em>句型</em>，若x仅由终结符号组成，则称x为G[S]的 <em>句子</em></p>
+</li>
+<li>
+<p>文法描述的语言是该文法一起句子的集合</p>
+</li>
+<li>
+<p>若L(G1) = L(G2)则称 <em>文法G1和G2是等价的</em></p>
+</li>
+<li>
+<p>二义性：同样的表达式存在着两个不同的语法树（同最左/右推导）</p>
+</li>
+</ul>
+<hr>
+<h3 id="文法的类型"><a class="markdownIt-Anchor" href="#文法的类型"></a> 文法的类型</h3>
+<ul>
+<li>0型文法
+<ul>
+<li>每一个产生式a-&gt;b,a中至少含有一个非终结符</li>
+</ul>
+</li>
+<li>1型文法（上下文有关文法）
+<ul>
+<li>每一个产生式a-&gt;b,均满足 <em>|b| &gt;= |a|</em> 仅仅S-&gt;ε除外。</li>
+</ul>
+</li>
+<li>２型文法（上下文无关文法）
+<ul>
+<li>每一个产生式a-&gt;b,a是一个非终结符</li>
+</ul>
+</li>
+<li>3型文法（正规文法）
+<ul>
+<li>每一个产生式的形式都是 <em>A-&gt;aB</em> 或者 <em>A-&gt;a</em></li>
+</ul>
+</li>
+<li>例如（A-&gt;B是2不是3)</li>
+</ul>
+<hr>
+<h3 id="上下文无关文法及其语法树"><a class="markdownIt-Anchor" href="#上下文无关文法及其语法树"></a> 上下文无关文法及其语法树</h3>
+<ul>
+<li>
+<p>最左（最右）推导</p>
+<ul>
+<li>在推导的任何一步，都是对a中最左（最右）非终结符使用产生式进行替换</li>
+<li>最右推导常被称作 <em>规范推导</em>，所得句型称为 <em>规范句型</em>或者 <em>最右句型</em></li>
+</ul>
+</li>
+<li>
+<p>二义性</p>
+<ul>
+<li>如果一个文法存在某个句子对应两棵不同的语法树，则说这个文法是 <em>二义</em>的。即某个据此有两个不同的最左（最右）推导。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="句型分析"><a class="markdownIt-Anchor" href="#句型分析"></a> 句型分析</h3>
+<ul>
+<li>短语
+<ul>
+<li>如果有S-&gt;aAo,A-&gt;（+）b,则称，b是句型abo相对于非终结符A的短语。</li>
+<li>如果A-&gt;b（直接推出），则称为 <em>直接短语</em></li>
+<li>一个右句型的直接短语称为该句的 <em>句柄</em></li>
+</ul>
+</li>
+</ul>
+<h1 id="第三章词法分析"><a class="markdownIt-Anchor" href="#第三章词法分析"></a> 第三章·词法分析</h1>
+<ul>
+<li>
+<p>正规式</p>
+<ul>
+<li>‘|’ 或</li>
+<li>‘.’ 连接</li>
+<li>‘*’ 闭包</li>
+<li>‘A-&gt;aA|a’ a^*a</li>
+<li>‘A-&gt;aA|ε’ a^*</li>
+<li>‘A→aAb|ab’ a^n b^n</li>
+<li>‘A→aAb | aBb；B→dB | d’  a^n d^m b^n</li>
+</ul>
+</li>
+<li>
+<p>有穷自动机</p>
+<ul>
+<li>确定的有穷自动机（DFA)
+<ul>
+<li>假定DFA有m个状态n个输入符号，那么这个状态图含有m个结点，每个结点最多有n个弧射出，整个图有唯一的初态结点和若干个终态结点。</li>
+</ul>
+</li>
+<li>不确定的有穷自动机（NFA)
+<ul>
+<li>一个含有m个状态n个输入符号的NFA，可表示含有m个状态结点，每个结点可射出若干条箭弧与别的结点相连接的状态图。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>NFA转换成等价的DFA</p>
+<ul>
+<li>设L为一个由不确定的有穷自动机接受的集合，则存在一个接受L的确定的有穷自动机</li>
+<li>子集法(P50)</li>
+</ul>
+</li>
+<li>
+<p>确定的有穷自动机的化简</p>
+<ul>
+<li>化简：说明没有多余状态，并且状态中没有两个是互相等价的。</li>
+<li>在有穷自动机中，两个状态s和t的等价的条件：
+<ul>
+<li>一致性条件：状态s和t必须同时为可接受(终态)或不可接受状态</li>
+<li>蔓延性条件：对于所有输入符号，状态s和状态t必须同时为可接受状态或不可接受状态</li>
+</ul>
+</li>
+<li>分割法</li>
+</ul>
+</li>
+<li>
+<p>将NFA转换成正规文法</p>
+<ul>
+<li>注意：终态结点需要 ：D-&gt;ε</li>
+</ul>
+</li>
+</ul>
+<h1 id="第四章自顶向下语法分析方法"><a class="markdownIt-Anchor" href="#第四章自顶向下语法分析方法"></a> 第四章·自顶向下语法分析方法</h1>
+<h3 id="分析思想"><a class="markdownIt-Anchor" href="#分析思想"></a> 分析思想</h3>
+<ul>
+<li>FIRST\FOLLOW\SELECT</li>
+<li>SELECT(P71)
+<ul>
+<li>a是终结符或非终结符，A是非终结符</li>
+<li>如果a-&gt;ε，则SELECT(A-&gt;a) = (FIRST(a) - ε) ∪ FOLLOW(A)</li>
+<li>如果a不能推导出ε，则SELECT(A-&gt;a) = FIRST(a)</li>
+</ul>
+</li>
+<li>上下文无关文法是LL(1)的 <em>充分必要条件</em>
+<ul>
+<li>A-&gt;a,A-&gt;b满足：SELECT(A-&gt;a) ∩ SELECT(A-&gt;b) = Ф（空）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="ll1文法判别"><a class="markdownIt-Anchor" href="#ll1文法判别"></a> LL(1)文法判别</h3>
+<ul>
+<li>不含左公共因子</li>
+<li>不含左递归</li>
+<li>当需要选用自顶向下分析技术时，必须判别所给文法是否是LL(1)文法。</li>
+<li>计算FIRST集、计算FOLLOW集、计算SELECT</li>
+<li>例题：P72  Q4.5</li>
+</ul>
+<hr>
+<h3 id="某些非ll1文法到ll1文法的等价变换"><a class="markdownIt-Anchor" href="#某些非ll1文法到ll1文法的等价变换"></a> 某些非LL(1)文法到LL(1)文法的等价变换</h3>
+<ul>
+<li>
+<p>提取左公共因子（P78)</p>
+<ul>
+<li>不含左公共因子是LL(1)文法的必要条件，而不是充分条件</li>
+</ul>
+</li>
+<li>
+<p>消除左递归</p>
+<ul>
+<li>直接左递归和间接左递归(P82)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="不确定的自顶向下分析思想"><a class="markdownIt-Anchor" href="#不确定的自顶向下分析思想"></a> 不确定的自顶向下分析思想</h3>
+<ul>
+<li>当文法不满足LL(1)时，不能用确定的自顶向下分析，但这种情况下可以用不确定的自顶向下分析（带回溯的自顶向下分析）</li>
+</ul>
+<h3 id="ll1分析实现"><a class="markdownIt-Anchor" href="#ll1分析实现"></a> LL(1)分析实现</h3>
+<ul>
+<li>表驱动（P92 4.5.2）</li>
+</ul>
+<h1 id="第五章自底向上优先分析"><a class="markdownIt-Anchor" href="#第五章自底向上优先分析"></a> 第五章·自底向上优先分析</h1>
+<blockquote>
+<p>自左向右按句柄归约的过程是自顶向下最右推导的逆过程，而最右推导称为规范推导，因而这一归约过程也称为规范归约。</p>
+</blockquote>
+<h3 id="简单文法定义"><a class="markdownIt-Anchor" href="#简单文法定义"></a> 简单文法定义</h3>
+<ul>
+<li>在文法符号集V中，任意两个符号指尖最多只有一种优先关系成立</li>
+<li>在文法中，任意两个产生式没有相同的右部</li>
+</ul>
+<h3 id="算符优先"><a class="markdownIt-Anchor" href="#算符优先"></a> 算符优先</h3>
+<ul>
+<li>算符优先分析法只考虑 <em>终结符</em> 之间的优先关系。</li>
+<li>最左素短语
+<ul>
+<li>至少包含一个终结符，并除自身外不包含其他素短语，最左边的速度语称为最左素短语。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优先函数"><a class="markdownIt-Anchor" href="#优先函数"></a> 优先函数</h3>
+<ul>
+<li>当a = b 则f(a) = f(b)</li>
+<li>当a &lt; b 则f(a) &lt; f(b)</li>
+<li>当a &gt; b 则f(a) &gt; f(b)</li>
+</ul>
+<h3 id="算符优先文法的定义"><a class="markdownIt-Anchor" href="#算符优先文法的定义"></a> 算符优先文法的定义</h3>
+<blockquote>
+<p>设有文法G，如果G中没有形如A-&gt;…BC…的产生式，其中BC为非终结符，则称G为算符文法，也称OG文法。(没有两个非终结符相邻)</p>
+</blockquote>
+<h1 id="第六章lr分析"><a class="markdownIt-Anchor" href="#第六章lr分析"></a> 第六章·LR分析</h1>
+<ul>
+<li>
+<p>自底向上分析方法是一种移进-规约过程。</p>
+</li>
+<li>
+<p>当分析的栈顶符号串形成句柄或可规约串时就采取规约动作。</p>
+</li>
+<li>
+<p>一个LR分析器由3部分组成：</p>
+<ul>
+<li>总控程序，也可以称为驱动程序。对所有的LR分析器，总控程序都是相同的。</li>
+<li>分析表或分析函数。不同的文法分析表将不同。</li>
+<li>分析栈，包括文法符号栈和相应的状态栈。</li>
+</ul>
+</li>
+</ul>
+<h3 id="lr0分析"><a class="markdownIt-Anchor" href="#lr0分析"></a> LR(0)分析</h3>
+<ul>
+<li>
+<p>可归前缀</p>
+<ul>
+<li>包括可规约前缀在内的所有前缀都称为活前缀</li>
+</ul>
+</li>
+<li>
+<p>子前缀</p>
+</li>
+<li>
+<p>拓广文法</p>
+<ul>
+<li>在原文法G[S]中新增产生式S-&gt;S’，所得的新文法称为G的拓广文法。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="lr0项目集规范簇的构造"><a class="markdownIt-Anchor" href="#lr0项目集规范簇的构造"></a> LR(0)项目集规范簇的构造</h3>
+<ul>
+<li>构造识别活前缀的NFA（圆点）</li>
+<li>移进项目
+<ul>
+<li>A-&gt;a·bc,其中a和c属于V，b属于终结符，则在分析时把b移进符号栈</li>
+</ul>
+</li>
+<li>待约项目
+<ul>
+<li>A-&gt;a·Bb,其中a,b属于V，B属于非终结符，表明所对应的状态等待着分析完非终结符B所能推出的归约成B</li>
+</ul>
+</li>
+<li>归约项目
+<ul>
+<li>A-&gt;a·其中，a属于V，即圆点在最右端的项目，表示归约。</li>
+</ul>
+</li>
+<li>接受项目</li>
+</ul>
+<hr>
+<h3 id="slr1分析"><a class="markdownIt-Anchor" href="#slr1分析"></a> SLR(1)分析</h3>
+<ul>
+<li>
+<p>SLR(1)是基于容许LR(0)规范族中有冲突的项目集（状态），用 <em>向前查看一个符号</em>的办法来进行处理。</p>
+</li>
+<li>
+<p>状态中含有冲突的文法有可能是一个SLR(1)文法</p>
+</li>
+<li>
+<p>移进-归约冲突</p>
+<ul>
+<li>·的后面为终结符的为移进</li>
+<li>只需要计算归约语句里的非终结符的FOLLOW</li>
+</ul>
+</li>
+<li>
+<p>归约-归约冲突</p>
+</li>
+<li>
+<p>I = {X-&gt;a·bB,A-&gt;y·,B-&gt;o·}</p>
+<ul>
+<li>其中a,B,y,o为文法符号穿，b为终结符，则只要满足：</li>
+<li>FOLLOW(A) ∩ FOLLOW(B) = 空</li>
+<li>FOLLOW(A) ∩ {b} = 空</li>
+<li>FOLLOW(B) ∩ {b} = 空<br>
+-那么当在I状态下，输入a时：</li>
+<li>若a = b移进</li>
+<li>若a 属于 FOLLOW(A)用A-&gt;y归约</li>
+<li>若a 属于 FOLLOW(B)用B-&gt;o归约</li>
+<li>此外则报错。</li>
+</ul>
+</li>
+<li>
+<p>在SLR中，只有当输入的符号包含在该归约项目左部的非终结符的FOLLOW中，才归约。</p>
+</li>
+</ul>
+<h1 id="第七章语义制导的语义计算"><a class="markdownIt-Anchor" href="#第七章语义制导的语义计算"></a> 第七章·语义制导的语义计算</h1>
+<ul>
+<li>属性文法
+<ul>
+<li>是一种基本的语义计算模型，适用于对一般原理的理解</li>
+</ul>
+</li>
+<li>翻译模式
+<ul>
+<li>是面向实现的语义计算模型</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="属性文法"><a class="markdownIt-Anchor" href="#属性文法"></a> 属性文法</h3>
+<ul>
+<li>在文法G[S]基础上，为文法符号关联有特定意义的 <em>属性</em>，并为产生式关联相应的 <em>语义动作</em>或 <em>条件谓词</em>，称之为 <em>属性文法</em>。</li>
+</ul>
+<p>对于关联于产生式A-&gt;a的语义动作 b:=f(c_1,c_2,…c_k)</p>
+<ul>
+<li>
+<p>综合属性</p>
+<ul>
+<li>如果b是A的某个属性，则称b是A的一个综合属性</li>
+<li>计算综合属性是对 <em>父结点</em>的属性赋值，是 <em>自底向上</em>传递信息</li>
+</ul>
+</li>
+<li>
+<p>继承属性</p>
+<ul>
+<li>如果b是产生式右部某个文件符号X的某个属性，则称b是文法符号X的一个继承属性</li>
+<li>计算继承属性是对 <em>子结点</em>的属性赋值，是 <em>自顶向下</em>传递信息</li>
+</ul>
+</li>
+<li>
+<p>S-属性文法</p>
+<ul>
+<li>只包含综合属性的属性文法</li>
+</ul>
+</li>
+<li>
+<p>L-属性文法</p>
+<ul>
+<li>既可以包含综合属性，也可以包含继承属性</li>
+<li>要求产生式右端某文法符号的继承属性的计算只取决于该符号左边符号的属性</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="翻译模式"><a class="markdownIt-Anchor" href="#翻译模式"></a> 翻译模式</h4>
+<ul>
+<li>
+<p>翻译模式在形式上类似于属性文法，但允许由{}括起来的予以动作出现在产生式右端的任何位置，以此显示地表达属性计算的次序。</p>
+</li>
+<li>
+<p>S-翻译模式</p>
+<ul>
+<li>是一种仅涉及综合属性的情形，通常将予以动作集合置于相应产生式右端的末尾</li>
+</ul>
+</li>
+<li>
+<p>L-翻译模式</p>
+<ul>
+<li>既可以包含综合属性，也可以包含继承属性。</li>
+<li>需要满足：</li>
+<li>产生式右端某个符号继承属性的计算必须位于该符号之前，其予以动作不访问位于它右边符号的属性</li>
+<li>产生式左部非终结符的综合属性的计算只能在所用到属性都计算出来之后进行，通常将相应的语义动作置于产生式的尾部。</li>
+</ul>
+</li>
+</ul>
+<h1 id="第八章静态语义分析和中间代码生成"><a class="markdownIt-Anchor" href="#第八章静态语义分析和中间代码生成"></a> 第八章·静态语义分析和中间代码生成</h1>
+<h3 id="符号表的作用"><a class="markdownIt-Anchor" href="#符号表的作用"></a> 符号表的作用</h3>
+<ul>
+<li>符号表是编译程序用到的最重要的数据之一，几乎在编译的每个阶段每一遍都要涉及符号表</li>
+<li>在语义分析中，符号表中所登记的内容是进行上下文语义合法性检查的依据</li>
+</ul>
+<hr>
+<h3 id="符号表体现作用域和可见性"><a class="markdownIt-Anchor" href="#符号表体现作用域和可见性"></a> 符号表体现作用域和可见性</h3>
+<ul>
+<li>拥有共同有效范围的符号所在的程序单元就构成了一个作用域。</li>
+<li>一个作用域可以被另一个作用域包围，称为嵌套的作用域。</li>
+<li>可见性是指在程序的某一特定点哪些符号是可访问的（即可见的）。</li>
+<li>每个作用域都有自己的符号表，称为 <em>多符号表组织</em>。也可以使所有嵌套的作用域公用一个全局符号表，称为 <em>单符号表组织</em></li>
+</ul>
+<hr>
+<h3 id="静态语义分析"><a class="markdownIt-Anchor" href="#静态语义分析"></a> 静态语义分析</h3>
+<ul>
+<li>符号表最迟要在静态语义分析时候生成</li>
+<li>基本任务
+<ul>
+<li>控制流检查</li>
+<li>唯一性检查</li>
+<li>名字的上下文相关性检查</li>
+<li>类型检查</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="中间代码生成"><a class="markdownIt-Anchor" href="#中间代码生成"></a> 中间代码生成</h3>
+<ul>
+<li>中间代码是源程序的不同表示形式，也称为中间表示，作用
+<ul>
+<li>用于源语言和目标语言之间的桥梁，避开二者之间较大的语义跨度，使编译程序的逻辑结构更加简单明确。</li>
+<li>利于编译程序的重定向。</li>
+<li>利于进行与目标机无关的优化</li>
+</ul>
+</li>
+<li>拉链与代码回填（重点）</li>
+</ul>
+<h1 id="第九章运行时存储组织"><a class="markdownIt-Anchor" href="#第九章运行时存储组织"></a> 第九章·运行时存储组织</h1>
+<h3 id="运行时存储组织的作用与任务"><a class="markdownIt-Anchor" href="#运行时存储组织的作用与任务"></a> 运行时存储组织的作用与任务</h3>
+<ul>
+<li>
+<p>编译程序所产生的目标程序本身的大小通常是确定的，一般存放在指定的专用存储区域，即<em>代码区</em></p>
+</li>
+<li>
+<p>目标程序运行过程中需要创建或访问的数据对象将存放在 <em>数据区</em></p>
+</li>
+</ul>
+<hr>
+<h3 id="程序运行时存储空间的布局"><a class="markdownIt-Anchor" href="#程序运行时存储空间的布局"></a> 程序运行时存储空间的布局</h3>
+<ul>
+<li>保留地址区
+<ul>
+<li>专门为目标机体系机构和操作系统保留的内存地址区</li>
+</ul>
+</li>
+<li>代码区</li>
+<li>静态数据区
+<ul>
+<li>静态存放全局数据，是普通程序可读可写的区域</li>
+</ul>
+</li>
+<li>共享库和分别编译模块区
+<ul>
+<li>静态存放共享库模块和分别编译模块的代码和全局数据</li>
+</ul>
+</li>
+<li>动态数据区
+<ul>
+<li>运行时动态变化的 <em>堆区</em>和 <em>栈区</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="存储分配策略"><a class="markdownIt-Anchor" href="#存储分配策略"></a> 存储分配策略</h3>
+<ul>
+<li>静态存储分配
+<ul>
+<li>在编译期间为数据对象分配存储空间，要求在编译期间就可确定数据对象的大小，同时还可以确定数据对象的数目。</li>
+</ul>
+</li>
+<li>栈式存储分配
+<ul>
+<li>栈区是作为“栈”这样一种数据结构来使用的动态存储区。</li>
+</ul>
+</li>
+<li>堆式存储分配</li>
+</ul>
+<h1 id="第十章代码优化和目标代码生成"><a class="markdownIt-Anchor" href="#第十章代码优化和目标代码生成"></a> 第十章·代码优化和目标代码生成</h1>
+<h3 id="基本快-流图和循环"><a class="markdownIt-Anchor" href="#基本快-流图和循环"></a> 基本快、流图和循环</h3>
+<ul>
+<li>
+<p>基本快</p>
+<ul>
+<li>
+<p>指程序中一个顺序执行的语句讯列，其中只有一个入口语句和一个出口语句。</p>
+</li>
+<li>
+<p>入口语句类型</p>
+<ul>
+<li>程序的第一条语句</li>
+<li>条件跳转语句和无条件跳转语句的跳转目标语句</li>
+<li>条件跳转语句后面的相邻语句</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>画程序流图</p>
+<ul>
+<li>可以为构成程序的基本快增加控制流程信息的有向图。</li>
+</ul>
+</li>
+<li>
+<p>循环</p>
+<ul>
+<li>支配检点
+<ul>
+<li>到达n点的任一通路都要经过m，称m是n的支配结点，m DOM n。</li>
+</ul>
+</li>
+<li>回边
+<ul>
+<li>如果d DOM n，则n-&gt;d是流图的一条回边</li>
+</ul>
+</li>
+<li>循环
+<ul>
+<li>如果n-&gt;d是回边，则到达n却不经过d的通路的所有结点。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/28/2017-春季系统结构复习提纲/" rel="next" title="2017-春季系统结构复习提纲">
+                <i class="fa fa-chevron-left"></i> 2017-春季系统结构复习提纲
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/05/2017-春季数据库复习提纲/" rel="prev" title="2017-春季数据库复习提纲">
+                2017-春季数据库复习提纲 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Pealing">
+            
+              <p class="site-author-name" itemprop="name">Pealing</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Pealing" title="GitHub &rarr; https://github.com/Pealing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="/atom.xml" title="RSS &rarr; atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://yisaer.github.io/" title="http://yisaer.github.io/" rel="noopener" target="_blank">Yisa's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yyyyvan.github.io/" title="https://yyyyvan.github.io/" rel="noopener" target="_blank">Yvan's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rollroll.me/" title="https://rollroll.me/" rel="noopener" target="_blank">Roll's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://langt.top/" title="https://langt.top/" rel="noopener" target="_blank">Tangl's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章引论"><span class="nav-number">2.</span> <span class="nav-text"> 第一章·引论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译程序"><span class="nav-number">2.0.1.</span> <span class="nav-text"> 什么是编译程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的过程"><span class="nav-number">2.0.2.</span> <span class="nav-text"> 编译程序的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释程序"><span class="nav-number">2.0.3.</span> <span class="nav-text"> 解释程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pl0编译程序"><span class="nav-number">2.0.4.</span> <span class="nav-text"> PL/0编译程序</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章文法和语言"><span class="nav-number">3.</span> <span class="nav-text"> 第二章·文法和语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文法和语言的形式定义"><span class="nav-number">3.0.1.</span> <span class="nav-text"> 文法和语言的形式定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文法的类型"><span class="nav-number">3.0.2.</span> <span class="nav-text"> 文法的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法及其语法树"><span class="nav-number">3.0.3.</span> <span class="nav-text"> 上下文无关文法及其语法树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#句型分析"><span class="nav-number">3.0.4.</span> <span class="nav-text"> 句型分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章词法分析"><span class="nav-number">4.</span> <span class="nav-text"> 第三章·词法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章自顶向下语法分析方法"><span class="nav-number">5.</span> <span class="nav-text"> 第四章·自顶向下语法分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析思想"><span class="nav-number">5.0.1.</span> <span class="nav-text"> 分析思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ll1文法判别"><span class="nav-number">5.0.2.</span> <span class="nav-text"> LL(1)文法判别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#某些非ll1文法到ll1文法的等价变换"><span class="nav-number">5.0.3.</span> <span class="nav-text"> 某些非LL(1)文法到LL(1)文法的等价变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不确定的自顶向下分析思想"><span class="nav-number">5.0.4.</span> <span class="nav-text"> 不确定的自顶向下分析思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ll1分析实现"><span class="nav-number">5.0.5.</span> <span class="nav-text"> LL(1)分析实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章自底向上优先分析"><span class="nav-number">6.</span> <span class="nav-text"> 第五章·自底向上优先分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单文法定义"><span class="nav-number">6.0.1.</span> <span class="nav-text"> 简单文法定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算符优先"><span class="nav-number">6.0.2.</span> <span class="nav-text"> 算符优先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优先函数"><span class="nav-number">6.0.3.</span> <span class="nav-text"> 优先函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算符优先文法的定义"><span class="nav-number">6.0.4.</span> <span class="nav-text"> 算符优先文法的定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章lr分析"><span class="nav-number">7.</span> <span class="nav-text"> 第六章·LR分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lr0分析"><span class="nav-number">7.0.1.</span> <span class="nav-text"> LR(0)分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lr0项目集规范簇的构造"><span class="nav-number">7.0.2.</span> <span class="nav-text"> LR(0)项目集规范簇的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slr1分析"><span class="nav-number">7.0.3.</span> <span class="nav-text"> SLR(1)分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章语义制导的语义计算"><span class="nav-number">8.</span> <span class="nav-text"> 第七章·语义制导的语义计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性文法"><span class="nav-number">8.0.1.</span> <span class="nav-text"> 属性文法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#翻译模式"><span class="nav-number">8.0.1.1.</span> <span class="nav-text"> 翻译模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章静态语义分析和中间代码生成"><span class="nav-number">9.</span> <span class="nav-text"> 第八章·静态语义分析和中间代码生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#符号表的作用"><span class="nav-number">9.0.1.</span> <span class="nav-text"> 符号表的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号表体现作用域和可见性"><span class="nav-number">9.0.2.</span> <span class="nav-text"> 符号表体现作用域和可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态语义分析"><span class="nav-number">9.0.3.</span> <span class="nav-text"> 静态语义分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间代码生成"><span class="nav-number">9.0.4.</span> <span class="nav-text"> 中间代码生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九章运行时存储组织"><span class="nav-number">10.</span> <span class="nav-text"> 第九章·运行时存储组织</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时存储组织的作用与任务"><span class="nav-number">10.0.1.</span> <span class="nav-text"> 运行时存储组织的作用与任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序运行时存储空间的布局"><span class="nav-number">10.0.2.</span> <span class="nav-text"> 程序运行时存储空间的布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储分配策略"><span class="nav-number">10.0.3.</span> <span class="nav-text"> 存储分配策略</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十章代码优化和目标代码生成"><span class="nav-number">11.</span> <span class="nav-text"> 第十章·代码优化和目标代码生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本快-流图和循环"><span class="nav-number">11.0.1.</span> <span class="nav-text"> 基本快、流图和循环</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pealing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

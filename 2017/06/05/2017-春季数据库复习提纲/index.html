@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Yesteryear:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/uploads/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言  没有前言。不想说了。没重点，我不说话。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-春季数据库复习提纲">
+<meta property="og:url" content="http://yoursite.com/2017/06/05/2017-春季数据库复习提纲/index.html">
+<meta property="og:site_name" content="Pealing&#39;s Blog">
+<meta property="og:description" content="前言  没有前言。不想说了。没重点，我不说话。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-06-05T14:56:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017-春季数据库复习提纲">
+<meta name="twitter:description" content="前言  没有前言。不想说了。没重点，我不说话。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2017/06/05/2017-春季数据库复习提纲/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>2017-春季数据库复习提纲 | Pealing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pealing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/05/2017-春季数据库复习提纲/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pealing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pealing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2017-春季数据库复习提纲
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-05 14:56:09" itemprop="dateCreated datePublished" datetime="2017-06-05T14:56:09+00:00">2017-06-05</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/春季复习提纲/" itemprop="url" rel="index"><span itemprop="name">春季复习提纲</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<blockquote>
+<p>没有前言。不想说了。没重点，我不说话。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="题型"><a class="markdownIt-Anchor" href="#题型"></a> 题型</h1>
+<blockquote>
+<p>选择20 填空10 判断10 大题50</p>
+</blockquote>
+<h1 id="第五章规范化设计"><a class="markdownIt-Anchor" href="#第五章规范化设计"></a> 第五章·规范化设计</h1>
+<h3 id="关系模式的冗余和异常问题"><a class="markdownIt-Anchor" href="#关系模式的冗余和异常问题"></a> 关系模式的冗余和异常问题</h3>
+<ul>
+<li>数据冗余是指同一个数据在系统中多次重复出现。</li>
+<li>操作异常
+<ul>
+<li>修改异常</li>
+<li>插入异常</li>
+<li>删除异常</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="函数依赖"><a class="markdownIt-Anchor" href="#函数依赖"></a> 函数依赖</h3>
+<ul>
+<li>FD
+<ul>
+<li>设有关系模式R(U)，X和Y是属性集U的子集，函数依赖（FD)是形为X-&gt;Y的一个命题。（X函数决定Y、Y函数依赖于X）</li>
+</ul>
+</li>
+<li>FD的逻辑蕴含
+<ul>
+<li>设F是在关系模式R(U)上成立的函数依赖集，X和Y是属性集U的子集，如果从F导出X-&gt;Y也在R(U)上成立，那么称F逻辑蕴含X-&gt;Y,记为F |= X-&gt;Y</li>
+</ul>
+</li>
+<li>闭包
+<ul>
+<li>设F是函数依赖集，被F逻辑蕴含的函数依赖全体构成的集合称为函数依赖集F的闭包，记为F+</li>
+<li>F+ = {X-&gt;Y | F|=X-&gt;Y}</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="fd的推理规则"><a class="markdownIt-Anchor" href="#fd的推理规则"></a> FD的推理规则</h3>
+<ul>
+<li>
+<p>设U是关系模式R的属性集，F是R上成立的只涉及U中属性的函数依赖集</p>
+<ul>
+<li>A1(自反性)：若Y属于X属于U，则X-&gt;Y在R上成立</li>
+<li>A2(增广性)：若X-&gt;Y在R上成立，且Z属于U，则XZ-&gt;YZ在R上成立</li>
+<li>A3(传递性)：若X-&gt;Y和Y-&gt;Z在R上成立，则X-&gt;Z在R上成立</li>
+</ul>
+</li>
+<li>
+<p>如果X-&gt;Y是从F用推理规则导出，那么X-&gt;Y在F+中</p>
+</li>
+<li>
+<p>对于FD  X-&gt;Y，如果Y属于X，那么称X-&gt;Y是一个 <em>平凡的FD</em>(AB-&gt;A)，否则称为 <em>非平凡的FD</em>(A-&gt;B)</p>
+</li>
+<li>
+<p>完整性</p>
+<ul>
+<li>F+中的FD都能从F集使用推理规则集导出。</li>
+</ul>
+</li>
+<li>
+<p>正确性</p>
+<ul>
+<li>从FD集F使用推理规则集推出的FD并在F+中</li>
+</ul>
+</li>
+<li>
+<p><em>正确性</em>保证了推出的所有FD是正确的，完备性保证了可以推出所有被蕴含的FD。从而保证了推导的有效性和可靠性。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li></li>
+</ul>
+<h3 id="fd和关键码的联系"><a class="markdownIt-Anchor" href="#fd和关键码的联系"></a> FD和关键码的联系</h3>
+<ul>
+<li>设关系模式R的属性集是U，X是U的一个子集，如果X-&gt;U在R上成立，那么称X是R的一个 <em>超键</em>（含有多余属性）。</li>
+<li>如果X-&gt;U在R上成立，但对于X的任一真子集X1，都有X1-&gt;U不成立，那么称X是R上的一个 <em>候选键</em>（不含有多余属性）。</li>
+</ul>
+<hr>
+<h3 id="属性集的闭包"><a class="markdownIt-Anchor" href="#属性集的闭包"></a> 属性集的闭包</h3>
+<ul>
+<li>设F是属性集U上的FD集，X是U的子集，那么（相对于F）属性集X的的闭包用X+表示，它是一个从F集使用FD推理规则退出的所有满足X-&gt;A的属性A的集合
+<ul>
+<li>X+ = {属性A|X-&gt;A在F+中}</li>
+</ul>
+</li>
+<li>X-&gt;Y能用FD推理规则推出的充分必要条件是Y属于X+</li>
+</ul>
+<hr>
+<h3 id="fd集的最小依赖集"><a class="markdownIt-Anchor" href="#fd集的最小依赖集"></a> FD集的最小依赖集</h3>
+<ul>
+<li>如果关系模式R(U)上的两个函数依赖集F和G，有F+ = G+，则称F和G是 <em>等价的函数依赖集</em></li>
+<li>最小依赖集条件：
+<ul>
+<li>F+min = F+;</li>
+<li>每个FD的右边都是单属性</li>
+<li>Fmin中没有冗余的FD</li>
+<li>每个FD的左边没有冗余属性</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="无损分解"><a class="markdownIt-Anchor" href="#无损分解"></a> 无损分解</h3>
+<blockquote>
+<p>设R是一个关系模式，F是R上的一个FD集。R分解成数据库模式，如果对R中满足F的每一个关系r投影、联接后仍然能恢复成r，则称为无损分解，否则为损失分解。</p>
+</blockquote>
+<ul>
+<li>
+<p>无损分解的测试方法</p>
+<ul>
+<li>画表格</li>
+<li>P113</li>
+<li>无损分解的充分必要条件
+<ul>
+<li>(R1 ∩ R2)-&gt;(R1 - R2) 或 (R1 ∩ R2)-&gt;(R2 - R1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>保持函数依赖的分解</p>
+<ul>
+<li>设F是属性集U上的FD集,Z是U的子集，F在Z上投影用πz(F)表示，定义为：
+<ul>
+<li>πz(F) = {X-&gt;Y | X-&gt;Y ∈ F+,且XY包含于Z}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第一范式"><a class="markdownIt-Anchor" href="#第一范式"></a> 第一范式</h3>
+<ul>
+<li>如果关系模式R的每个关系r的属性值都是不可分的原子值，那么称R是第一范式模式</li>
+<li>满足1NF的关系称为规范化的关系，否则称为非规范化的关系。</li>
+<li>1NF是关系模式应具备的最起码的条件</li>
+</ul>
+<h3 id="第二范式"><a class="markdownIt-Anchor" href="#第二范式"></a> 第二范式</h3>
+<ul>
+<li>对FD W-&gt;A如果存在X存在于W，有X-&gt;A成立，那么称W-&gt;A是局部依赖，否则称W-&gt;A是完全依赖</li>
+<li>如果A是关系模式R的候选键中的属性，那么称A是R的主属性；否则称A是R的非主属性。</li>
+<li>如果关系模式R是1NF，且每个非主属性 <em>完全函数依赖</em>于候选键，那么R是第二范式（2NF)。</li>
+</ul>
+<h3 id="第三范式"><a class="markdownIt-Anchor" href="#第三范式"></a> 第三范式</h3>
+<ul>
+<li>
+<p>如果X-&gt;Y,Y-&gt;A,且Y不能推出X，和A∉Y，那么称X-&gt;A是传递依赖。</p>
+</li>
+<li>
+<p>如果关系模式R是1NF，且每个 <em>非主属性</em> 都 <em>不传递依赖</em>于R的候选键，那么称R是第三范式（3NF)的模式。</p>
+</li>
+<li>
+<p>如果数据库模式中每个关系模式都是3NF，则称其为3NF的数据库模式。</p>
+</li>
+<li>
+<p>分解成3NF模式集的方法</p>
+<ul>
+<li>对于关系模式R和R上成立的FD集F，求出F的最小依赖集，然后把最小依赖集中左部左部相同的FD用合并性合并起来。</li>
+<li>对最小依赖集中每个FD X-&gt;Y去构成一个模式XY</li>
+<li>在构成的模式集中，如果每个模式都不包含R的候选键，那么把候选键作为一个模式放入模式集中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="bcnf"><a class="markdownIt-Anchor" href="#bcnf"></a> BCNF</h3>
+<ul>
+<li>
+<p>如果关系模式R是1NF，且每个 <em>属性</em> 都不传递依赖于R的候选键，那么称R是BCNF的模式。</p>
+</li>
+<li>
+<p>如果数据库模式中每个关系模式都是BCNF，则称为BCNF的数据库模式。</p>
+</li>
+<li>
+<p>分解成BCNF模式集的方法</p>
+<ul>
+<li>如果p中有一个关系模式Ri相对于πRi(F)不是BCNF,则此时，Ri中存在一个非平凡FD X-&gt;Y，有X不包含超键，此时把Ri分解成XY和Ri-Y两个模式。重复上述过程。</li>
+</ul>
+</li>
+</ul>
+<h3 id="多值依赖mvd"><a class="markdownIt-Anchor" href="#多值依赖mvd"></a> 多值依赖(MVD)</h3>
+<ul>
+<li>设U是关系模式R的属性集，X和Y是U的子集，Z=R-X-Y,小写的xyz表示属性集XYZ的值。对于R的关系r,在r中存在元组（x,y1,z1)和（x,y2,z2)时，也就(x,y1,z1),(x,y2,z2)那么称多值依赖。X-&gt;-&gt;Y在模式R上成立。</li>
+<li>对于属性集U上的MVD X-&gt;-&gt;Y，如果Y包含于X，或者XY = U，那么称X-&gt;-&gt;Y是平凡的MVD,否则称为非平凡的多值依赖。</li>
+</ul>
+<h3 id="第四范式"><a class="markdownIt-Anchor" href="#第四范式"></a> 第四范式</h3>
+<ul>
+<li>设D是关系模式R上成立的FD和MVD集合，如果D中每个费平凡的MVD X-&gt;-&gt;Y的左部X都是R的超键，那么称R是4NF的模式</li>
+</ul>
+<h3 id="第五范式"><a class="markdownIt-Anchor" href="#第五范式"></a> 第五范式</h3>
+<ul>
+<li>如果关系模式R的每个JD均由R的候选键蕴含，那么称R是5NF模式。</li>
+</ul>
+<h1 id="第七章数据库设计"><a class="markdownIt-Anchor" href="#第七章数据库设计"></a> 第七章·数据库设计</h1>
+<!-- 
+### 软件生存期
+* 规划阶段
+    - 确定开发的总目标，给出计划开发的软件系统的功能、性能、可靠性以及接口等方面的设想。
+* 需求分析阶段
+    - 了解度数据的加工要求，确定系统的功能域边界。
+    - 结果：提供一个可作为设计基础的系统规格说明书，包括对软硬件环境的需求和一整套完整的数据流程图
+* 设计阶段
+    - 把需求分析阶段所确定的功能细化，主要工作是设计模块结构图和系统的数据结构。对每个模块内部设计详细的流程。
+* 程序编制阶段
+    - 对某一种或几种特定的程序设计语言表达上一阶段确定的各模块控制流程。程序编制时应遵循结构化程序设计方法。
+* 调试阶段
+    - 对已经编制好的程序进行单元调试（分调）、整体调试（联调）和系统测试（验收）
+* 运行维护阶段
+    - 这是整个生存期中时间最长的阶段，其工作重点是将系统付诸实用，同时解决开发过程的遗留问题，改正错误并进行功能扩充和性能改善。 -->
+<h3 id="数据库系统生存期"><a class="markdownIt-Anchor" href="#数据库系统生存期"></a> 数据库系统生存期</h3>
+<ul>
+<li>七个阶段
+<ul>
+<li>规划
+<ul>
+<li>进行监理数据库的必要性及可行性分析，确定数据库系统在组织中和信息系统中的地位，以及各个数据库之间的关系。</li>
+</ul>
+</li>
+<li>需求分析
+<ul>
+<li>收集用户需求；编写需求分析报告（数据流图DFD和数据字典DD）</li>
+</ul>
+</li>
+<li>概念设计
+<ul>
+<li>设计概念模型（ER模型）</li>
+</ul>
+</li>
+<li>逻辑设计
+<ul>
+<li>把ER模型转换成关系模型</li>
+</ul>
+</li>
+<li>物理设计
+<ul>
+<li>设计DB物理结构（存储结构和存储方法）</li>
+</ul>
+</li>
+<li>实现</li>
+<li>运行维护</li>
+</ul>
+</li>
+</ul>
+<h1 id="第八章数据库管理"><a class="markdownIt-Anchor" href="#第八章数据库管理"></a> 第八章·数据库管理</h1>
+<h3 id="事务的定义"><a class="markdownIt-Anchor" href="#事务的定义"></a> 事务的定义</h3>
+<ul>
+<li>
+<p>事务</p>
+<ul>
+<li>是构成单一逻辑工作单元的操作集合。不论发生何种情况，DBS必须保证事务能正确、完整地执行。</li>
+<li>在程序中事务以BEGIN TRANSACTION语句开始，以COMMIT语句或ROLLBACK语句结束。</li>
+</ul>
+</li>
+<li>
+<p>COMMIT语句</p>
+<ul>
+<li>表示事务执行成功地结束（提交），该事务对数据库的所有更新都已交付实施（写入磁盘）</li>
+</ul>
+</li>
+<li>
+<p>ROLLBACK</p>
+<ul>
+<li>语句表示事务执行不成功地结束（回退），此时告诉系统，已发生错误，数据库可能处在不正确的状态，该事务对数据库的所有更新必须被撤销，数据库应恢复该事务到初始状态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="事务的acid性质"><a class="markdownIt-Anchor" href="#事务的acid性质"></a> 事务的ACID性质</h3>
+<ul>
+<li>原子性
+<ul>
+<li>一个事务对数据库的所有操作，是一个不可分割的工作单元</li>
+</ul>
+</li>
+<li>一致性
+<ul>
+<li>一个事务独立执行的结果，应保持数据库的一致性</li>
+</ul>
+</li>
+<li>隔离性
+<ul>
+<li>多个事务并发执行时，系统应保证与这些事务先后单独执行时的结果一样</li>
+</ul>
+</li>
+<li>持久性
+<ul>
+<li>一个事务一旦完成全部操作后，它对数据库的所有更新应永久地反应在数据库中，不会丢失。</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库的恢复"><a class="markdownIt-Anchor" href="#数据库的恢复"></a> 数据库的恢复</h3>
+<ul>
+<li>
+<p>系统能把数据库从被破坏、不正确的状态，恢复到最近一个正确的状态，DBMS的这种能力称为 <em>数据库的可恢复性</em>(Recovery)</p>
+</li>
+<li>
+<p>恢复的基本原则：数据库重复存储</p>
+</li>
+<li>
+<p>恢复的实现方法</p>
+<ul>
+<li>转储和建立日志
+<ul>
+<li>周期地对整个数据库进行拷贝，转储到另一个磁盘或磁带一类的存储介质中。</li>
+<li>建立日志数据库。</li>
+</ul>
+</li>
+<li>一旦发生数据库故障
+<ul>
+<li>如果数据库已被损坏，就必须装入最近一次拷贝的数据库备份到新的磁盘。</li>
+<li>如果数据库未被破坏，但某些数据不可靠，则通过日志库执行撤销</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="故障的类型"><a class="markdownIt-Anchor" href="#故障的类型"></a> 故障的类型</h3>
+<ul>
+<li>事务故障
+<ul>
+<li>可以预期的事务故障，在程序中可以预先估计到的错误，如存款余额透支。</li>
+<li>非预期的事务故障，如运算溢出，数据错误。</li>
+</ul>
+</li>
+<li>系统故障
+<ul>
+<li>引起系统停止运行环随之要求重新启动的事件。如硬件故障、软件错误或掉电等几种情况。</li>
+</ul>
+</li>
+<li>介质故障
+<ul>
+<li>发生介质故障和遭受病毒破坏时，磁盘上的物理数据库遭到毁灭性破坏。</li>
+</ul>
+</li>
+<li>系统故障通常称为软故障，介质故障通常称为硬故障。</li>
+</ul>
+<h3 id="检查点机制"><a class="markdownIt-Anchor" href="#检查点机制"></a> 检查点机制</h3>
+<ul>
+<li>
+<p>DBMS定时设置检查点，在检查点时刻才真正把对DB的修改写到磁盘，并在日志文件写入一条检查点记录。</p>
+</li>
+<li>
+<p>当DB需要回复时只有那些在检查点后面的还在执行的事务需要恢复。</p>
+</li>
+<li>
+<p>检查点方法的恢复算法</p>
+<ul>
+<li>根据日志文件建立事务重做队列和事务撤销队列
+<ul>
+<li>从头扫描日志文件（正向扫描）</li>
+</ul>
+</li>
+<li>对重做队列的事务金乌REDO处理，对撤销队列的事务进行UNDO处理
+<ul>
+<li>REDO
+<ul>
+<li>正向扫描日志文件，根据重做队列的记录对每一个重做事务重新实施对数据库的更新操作</li>
+</ul>
+</li>
+<li>UNDO
+<ul>
+<li>反向扫描日志文件，根据撤销队列的记录对每一个撤销事务的更新操作执行逆操作（对插入操作执行删除操作，对删除操作执行cherub操作，对修改操作则用修改前的值代替修改后的值）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="并发操作带来的三个问题"><a class="markdownIt-Anchor" href="#并发操作带来的三个问题"></a> 并发操作带来的三个问题</h3>
+<ul>
+<li>丢失更新问题</li>
+<li>读脏数据问题</li>
+<li>不一致分析问题</li>
+</ul>
+<h3 id="封锁机制"><a class="markdownIt-Anchor" href="#封锁机制"></a> 封锁机制</h3>
+<ul>
+<li>排他型封锁
+<ul>
+<li>X锁
+<ul>
+<li>如果事务T对某个数据实现X锁，那么其他事务T’要等T接触X锁以后，才能对这个数据进行封锁。</li>
+<li>PX协议
+<ul>
+<li>任何企图更新记录R的事务必须先执行“XFIND R&quot;的操作，已获得对R的X锁，才能读或写记录R；如果未获准X锁，那么这个事务进入等待状态，一直到获准X锁，事务才能继续做下去。</li>
+</ul>
+</li>
+<li>PXC协议
+<ul>
+<li>X锁的解锁操作应该合并到事务的结束(COMMIT或RILLBACK)操作中。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>共享型封锁
+<ul>
+<li>S锁
+<ul>
+<li>如果事务T对某数据加上S锁后，仍允许其他事务再对该数据加S锁，但在对该数据的所有S锁都解锁之前决不允许任何事务对该数据加X锁。</li>
+<li>PS协议
+<ul>
+<li>任何要更新记录R的事务必须先执行SFIND R操作，已获得对R的S锁。若要更新记录R必须用UPDX R操作，这个操作首先把S锁升级为X锁，若成功则更新记录</li>
+</ul>
+</li>
+<li>PSC协议
+<ul>
+<li>S锁的解锁操作应该合并到事务的结束操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="活锁-饿死和死锁"><a class="markdownIt-Anchor" href="#活锁-饿死和死锁"></a> 活锁、饿死和死锁</h3>
+<ul>
+<li>活锁
+<ul>
+<li>系统可能使某个事务永远处于等待状态，得不到封锁的机会</li>
+<li>解决活锁的一种简单方式是采用 <em>先来先服务</em>策略。</li>
+</ul>
+</li>
+<li>饿死
+<ul>
+<li>有可能存在一个事务序列，其中每个事务都申请对某数据加S锁，且每个事务在授权加锁后一小段时间内释放封锁，此时若另有一个事务T1欲在该数据项上加X锁，则永远轮不到封锁的机会</li>
+<li>避免方法：当事务T2申请对数据项Q加S锁时，条件：
+<ul>
+<li>不存在在数据线Q上持有X锁的其他事物</li>
+<li>不存在等待对数据项Q加锁，且先于T2申请加锁的事务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>死锁
+<ul>
+<li>系统中有两个或两个以上的事务都处于等待状态，并且每个事务都在等待其中另一个事务解除封锁。</li>
+</ul>
+</li>
+</ul>
+<h3 id="并发调度的可串行化"><a class="markdownIt-Anchor" href="#并发调度的可串行化"></a> 并发调度的可串行化</h3>
+<ul>
+<li>
+<p>事务的调度、串行调度和并发调度</p>
+<ul>
+<li>事务的执行次序称为&quot;调度&quot;</li>
+<li>如果多个事务依次执行，则称为事务的 <em>串行调度</em></li>
+<li>如果利用分时的方法，同时处理多个事务，则称为事务的 <em>并发调度</em></li>
+</ul>
+</li>
+<li>
+<p>可串行化概念</p>
+<ul>
+<li>每个事务中，语句的先后顺序在各种调度中始终保持一致。在这个前提下，如果一个并发调度的执行结果与某一串行调度的执行结果等价，则称其为&quot;可串行化调度&quot;。</li>
+</ul>
+</li>
+<li>
+<p>两段封锁法</p>
+<ul>
+<li>两段封锁协议
+<ul>
+<li>在对任何一个数据进行写操作之前，事务必须获得对该数据的封锁</li>
+<li>在释放一个封锁之后，事务不再获得任何其他封锁</li>
+</ul>
+</li>
+<li>如果所有的事务都遵循&quot;两段封锁协议&quot;，则所有可能的并发调度都是可串行化的。</li>
+<li>两段式封锁是可串行化的充分条件，但不是必要条件。</li>
+<li>两段封锁协议仍有可能导致死锁的发生，而且可能会增多。</li>
+</ul>
+</li>
+</ul>
+<h3 id="sql中事务的存取模式和隔离级别"><a class="markdownIt-Anchor" href="#sql中事务的存取模式和隔离级别"></a> SQL中事务的存取模式和隔离级别</h3>
+<ul>
+<li>事务的存取模式
+<ul>
+<li>READ ONLY(只读型)</li>
+<li>READ WRITE(读写型)</li>
+</ul>
+</li>
+<li>事务的隔离级别
+<ul>
+<li>SERIALIZABLE(可串行化)</li>
+<li>REPEATABLE READ(可重复读)</li>
+<li>READ COMMITTED(读提交数据)</li>
+<li>READ UNCOMMITTED(可以读未提交数据)</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库的完整性"><a class="markdownIt-Anchor" href="#数据库的完整性"></a> 数据库的完整性</h3>
+<blockquote>
+<p>数据库中完整性一词是指数据的正确性、有效性和相容性</p>
+</blockquote>
+<ul>
+<li>完整性子系统的主要功能
+<ul>
+<li>监督事务的执行，并测试是否违反完整性规则</li>
+<li>若有违反现象，则采取恰当的操作，如拒绝操作，报告违反情况，改正错误等方法来处理</li>
+</ul>
+</li>
+<li>完整性规则的组成
+<ul>
+<li>什么时候使用规则进行检查（触发条件）</li>
+<li>要检查什么样的错误（约束条件/谓词）</li>
+<li>如果查出错误应该怎么办（ELSE子句）</li>
+</ul>
+</li>
+</ul>
+<h3 id="sql中的完整性约束"><a class="markdownIt-Anchor" href="#sql中的完整性约束"></a> SQL中的完整性约束</h3>
+<ul>
+<li>域约束</li>
+<li>基本表约束
+<ul>
+<li>候选键定义
+<ul>
+<li>UNIQUE()</li>
+<li>PRIMAY KEY()</li>
+</ul>
+</li>
+<li>外键定义</li>
+<li>检查约束
+<ul>
+<li>CHECK()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>断言
+<ul>
+<li>CREATE ASSERTION&lt;断言名&gt;CHECK(&lt;条件&gt;)</li>
+</ul>
+</li>
+</ul>
+<h3 id="sql3的触发器p190"><a class="markdownIt-Anchor" href="#sql3的触发器p190"></a> SQL3的触发器（P190)</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> TRIG1</span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">UPDATE</span> <span class="keyword">OF</span> PRICE <span class="keyword">ON</span> SPJ</span><br><span class="line"><span class="keyword">REFERENCING</span></span><br><span class="line">    <span class="keyword">OLD</span> <span class="keyword">AS</span> OLDTUPLE</span><br><span class="line">    <span class="keyword">NEW</span> <span class="keyword">AS</span> NEWTUPLE</span><br><span class="line"><span class="keyword">WHEN</span> (OLDTUPLE.PRICE &gt; NEWTUPLE.PRICE)</span><br><span class="line">    <span class="keyword">UPDATE</span> SPJ</span><br><span class="line">    <span class="keyword">SET</span> PRICE = OLDTUPLE.PRICE</span><br><span class="line">    <span class="keyword">WHERE</span> SNO = NEWTUPLE.SNO <span class="keyword">AND</span> PNO.NEWTUPLE.PNO JNO = NEWTUPLE.JNO</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>第1行，触发器名字TRIG1</p>
+</li>
+<li>
+<p>第2行，触发事件，即对SPJ的PRICW值修改后激活触发器</p>
+</li>
+<li>
+<p>第3-5行，行为触发器的条件和动作部分设置必要的元组变量OLDTUPLE和NEWTUPLE分别为修改前、后的元组变量</p>
+</li>
+<li>
+<p>第6行，触发器的条件</p>
+</li>
+<li>
+<p>第7-9行，触发器的动作</p>
+</li>
+<li>
+<p>第10行，表示触发器对每一个修改的元组都要检查一次。</p>
+</li>
+<li>
+<p>触发器的撤销语句</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TRIGGER</span> TRIG1;</span><br></pre></td></tr></table></figure>
+<h3 id="数据库的安全性"><a class="markdownIt-Anchor" href="#数据库的安全性"></a> 数据库的安全性</h3>
+<ul>
+<li>数据库的安全性是指保护数据库，防止不合法的使用，一面数据的泄密、更改或破坏</li>
+<li>数据库的安全性级别
+<ul>
+<li>环境级</li>
+<li>职员级</li>
+<li>OS级</li>
+<li>网络级</li>
+<li>DBS级</li>
+</ul>
+</li>
+<li>权限
+<ul>
+<li>访问数据的权限
+<ul>
+<li>读</li>
+<li>插入</li>
+<li>修改</li>
+<li>删除</li>
+</ul>
+</li>
+<li>修改数据库结构的权限
+<ul>
+<li>索引</li>
+<li>资源</li>
+<li>修改</li>
+<li>撤销</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SQL中的安全性机制
+<ul>
+<li>视图</li>
+<li>SQL 2中的用户权限及其操作
+<ul>
+<li>用户权限
+<ul>
+<li>SELECT</li>
+<li>INSERT</li>
+<li>DELETE</li>
+<li>UPDATE</li>
+<li>REFERENCES</li>
+<li>USAGE</li>
+</ul>
+</li>
+<li>授权语句
+<ul>
+<li>GRANT&lt;权限表&gt;ON&lt;数据库元素&gt;TO&lt;用户名表&gt;[WITH GRANT OPTION]</li>
+<li>[WITH GRANT OPTION]表示获得权限的用户可以获得传递权限</li>
+</ul>
+</li>
+<li>回收语句
+<ul>
+<li>REVOKE&lt;权限表&gt; ON &lt;数据库元素&gt; FROM&lt;用户名表&gt;[RESTRICT|CASCADE]</li>
+<li>CASCADE表示回收权限时引起连锁回收</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据加密</li>
+<li>自然环境的安全性</li>
+</ul>
+</li>
+</ul>
+<h1 id="第九周分布式数据库系统"><a class="markdownIt-Anchor" href="#第九周分布式数据库系统"></a> 第九周·分布式数据库系统</h1>
+<h3 id="ddbs分布式数据库系统"><a class="markdownIt-Anchor" href="#ddbs分布式数据库系统"></a> DDBS·分布式数据库系统</h3>
+<p>*　一个分布式系统使用通信网络连接起来的结点（场地）的集合，每个结点都是拥有集中式数据库的计算机系统。<br>
+*　表面上看，分布式数据库的数据分散在各个场地上，但这些数据在逻辑上都是一个整体，如同一个集中式数据库。<br>
+*　分布式数据库有 <em>局部数据库</em>和<em>全局数据库</em>，这是它&quot;逻辑整体性&quot;的特点。<br>
+*　DDB是计算机网络环境中个场地上数据库的逻辑集合<br>
+*　DDBMS是DDBS中的一组软件，负责管理分布环境下逻辑继承数据的存取、一致性和完备性。</p>
+<h3 id="ddbs的特点"><a class="markdownIt-Anchor" href="#ddbs的特点"></a> DDBS的特点</h3>
+<ul>
+<li>物理分布性</li>
+<li>逻辑整体性</li>
+<li>场地自治性</li>
+<li>场地指尖的协作性</li>
+</ul>
+<h1 id="第十章对象关系数据库"><a class="markdownIt-Anchor" href="#第十章对象关系数据库"></a> 第十章·对象关系数据库</h1>
+<ul>
+<li>嵌套关系
+<ul>
+<li>允许关系的属性值又可以是一个关系，而且可以出现多次嵌套</li>
+</ul>
+</li>
+<li>复合对象
+<ul>
+<li>关系中的属性类型可以是基本数据类型，也可以是结构类型（元组类型）或集合类型<br>
+（关系类型）</li>
+</ul>
+</li>
+<li>引用类型
+<ul>
+<li>引用计数解决类型定义中的递归问题。</li>
+<li>相当于程序设计中指针的概念，在面向对象技术中称为<em>对象标识</em>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="复合类型p221"><a class="markdownIt-Anchor" href="#复合类型p221"></a> 复合类型（P221）</h3>
+<ul>
+<li>行类型
+<ul>
+<li>不同类型元素的有序集合</li>
+</ul>
+</li>
+<li>数组类型
+<ul>
+<li>相同类型元素的有序集合</li>
+</ul>
+</li>
+<li>列表类型
+<ul>
+<li>相同类型元素的有序集合，允许重复的元素</li>
+</ul>
+</li>
+<li>包类型
+<ul>
+<li>相同类型元素的无序集合，允许重复元素</li>
+</ul>
+</li>
+<li>集合类型
+<ul>
+<li>相同类型元素的无序集合，不允许重复元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="ordb的定义p222"><a class="markdownIt-Anchor" href="#ordb的定义p222"></a> ORDB的定义(P222)</h3>
+<h3 id="继承性的定义p223"><a class="markdownIt-Anchor" href="#继承性的定义p223"></a> 继承性的定义(P223)</h3>
+<ul>
+<li>类</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TYPE</span> PERSON(<span class="keyword">NAME</span> MYSTRING,SOCIAL_NUMBER <span class="built_in">INTEGER</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TYPE</span> STUDENT(DEGREE MYSTRING,DEPARTMENT MYSTRING ) <span class="keyword">UNDER</span> PERSON;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>表
+<ul>
+<li>超标中每个元组最多可以与每个子表中的一个元组对应</li>
+<li>子表中的每个元组在超表中恰有一个元组对应，并在继承的属性上有相同的值</li>
+</ul>
+</li>
+</ul>
+<h3 id="ordb-查询语言p226"><a class="markdownIt-Anchor" href="#ordb-查询语言p226"></a> ORDB 查询语言(P226)</h3>
+<ul>
+<li>允许用于计算关系的表达式出现在任何关系名可以出现的地方</li>
+<li>规定应为每个基本表设置一个元组标量，然后才可以引用&quot;FROM UNIVERSITY AS U&quot;</li>
+<li>都能过路径中某个属性值为集合时，就应该定义一个元组变量</li>
+</ul>
+<h1 id="第十一章面向对象数据库"><a class="markdownIt-Anchor" href="#第十一章面向对象数据库"></a> 第十一章·面向对象数据库</h1>
+<ul>
+<li>面向对象数据库系统(OODBS)是一个数据库系统，同时是一个面向对象系统，是针对面向对象程序设计语言的持久性对象存储管理而设计的</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/01/2017-春季编译原理复习提纲/" rel="next" title="2017-春季编译原理复习提纲">
+                <i class="fa fa-chevron-left"></i> 2017-春季编译原理复习提纲
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/21/C语言-动态内存分配/" rel="prev" title="C语言-动态内存分配">
+                C语言-动态内存分配 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Pealing">
+            
+              <p class="site-author-name" itemprop="name">Pealing</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Pealing" title="GitHub &rarr; https://github.com/Pealing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="/atom.xml" title="RSS &rarr; atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://yisaer.github.io/" title="http://yisaer.github.io/" rel="noopener" target="_blank">Yisa's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yyyyvan.github.io/" title="https://yyyyvan.github.io/" rel="noopener" target="_blank">Yvan's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rollroll.me/" title="https://rollroll.me/" rel="noopener" target="_blank">Roll's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://langt.top/" title="https://langt.top/" rel="noopener" target="_blank">Tangl's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题型"><span class="nav-number">2.</span> <span class="nav-text"> 题型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章规范化设计"><span class="nav-number">3.</span> <span class="nav-text"> 第五章·规范化设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关系模式的冗余和异常问题"><span class="nav-number">3.0.1.</span> <span class="nav-text"> 关系模式的冗余和异常问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数依赖"><span class="nav-number">3.0.2.</span> <span class="nav-text"> 函数依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fd的推理规则"><span class="nav-number">3.0.3.</span> <span class="nav-text"> FD的推理规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fd和关键码的联系"><span class="nav-number">3.0.4.</span> <span class="nav-text"> FD和关键码的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性集的闭包"><span class="nav-number">3.0.5.</span> <span class="nav-text"> 属性集的闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fd集的最小依赖集"><span class="nav-number">3.0.6.</span> <span class="nav-text"> FD集的最小依赖集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无损分解"><span class="nav-number">3.0.7.</span> <span class="nav-text"> 无损分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一范式"><span class="nav-number">3.0.8.</span> <span class="nav-text"> 第一范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二范式"><span class="nav-number">3.0.9.</span> <span class="nav-text"> 第二范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三范式"><span class="nav-number">3.0.10.</span> <span class="nav-text"> 第三范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bcnf"><span class="nav-number">3.0.11.</span> <span class="nav-text"> BCNF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多值依赖mvd"><span class="nav-number">3.0.12.</span> <span class="nav-text"> 多值依赖(MVD)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四范式"><span class="nav-number">3.0.13.</span> <span class="nav-text"> 第四范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五范式"><span class="nav-number">3.0.14.</span> <span class="nav-text"> 第五范式</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章数据库设计"><span class="nav-number">4.</span> <span class="nav-text"> 第七章·数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库系统生存期"><span class="nav-number">4.0.1.</span> <span class="nav-text"> 数据库系统生存期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章数据库管理"><span class="nav-number">5.</span> <span class="nav-text"> 第八章·数据库管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的定义"><span class="nav-number">5.0.1.</span> <span class="nav-text"> 事务的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的acid性质"><span class="nav-number">5.0.2.</span> <span class="nav-text"> 事务的ACID性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库的恢复"><span class="nav-number">5.0.3.</span> <span class="nav-text"> 数据库的恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#故障的类型"><span class="nav-number">5.0.4.</span> <span class="nav-text"> 故障的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查点机制"><span class="nav-number">5.0.5.</span> <span class="nav-text"> 检查点机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发操作带来的三个问题"><span class="nav-number">5.0.6.</span> <span class="nav-text"> 并发操作带来的三个问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封锁机制"><span class="nav-number">5.0.7.</span> <span class="nav-text"> 封锁机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#活锁-饿死和死锁"><span class="nav-number">5.0.8.</span> <span class="nav-text"> 活锁、饿死和死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发调度的可串行化"><span class="nav-number">5.0.9.</span> <span class="nav-text"> 并发调度的可串行化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql中事务的存取模式和隔离级别"><span class="nav-number">5.0.10.</span> <span class="nav-text"> SQL中事务的存取模式和隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库的完整性"><span class="nav-number">5.0.11.</span> <span class="nav-text"> 数据库的完整性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql中的完整性约束"><span class="nav-number">5.0.12.</span> <span class="nav-text"> SQL中的完整性约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql3的触发器p190"><span class="nav-number">5.0.13.</span> <span class="nav-text"> SQL3的触发器（P190)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库的安全性"><span class="nav-number">5.0.14.</span> <span class="nav-text"> 数据库的安全性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九周分布式数据库系统"><span class="nav-number">6.</span> <span class="nav-text"> 第九周·分布式数据库系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ddbs分布式数据库系统"><span class="nav-number">6.0.1.</span> <span class="nav-text"> DDBS·分布式数据库系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ddbs的特点"><span class="nav-number">6.0.2.</span> <span class="nav-text"> DDBS的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十章对象关系数据库"><span class="nav-number">7.</span> <span class="nav-text"> 第十章·对象关系数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复合类型p221"><span class="nav-number">7.0.1.</span> <span class="nav-text"> 复合类型（P221）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ordb的定义p222"><span class="nav-number">7.0.2.</span> <span class="nav-text"> ORDB的定义(P222)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承性的定义p223"><span class="nav-number">7.0.3.</span> <span class="nav-text"> 继承性的定义(P223)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ordb-查询语言p226"><span class="nav-number">7.0.4.</span> <span class="nav-text"> ORDB 查询语言(P226)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十一章面向对象数据库"><span class="nav-number">8.</span> <span class="nav-text"> 第十一章·面向对象数据库</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pealing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

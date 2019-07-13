@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Yesteryear:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/uploads/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言  emmm…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习-基础知识">
+<meta property="og:url" content="http://yoursite.com/2018/09/15/深度学习-基础数学知识/index.html">
+<meta property="og:site_name" content="Pealing&#39;s Blog">
+<meta property="og:description" content="前言  emmm…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-15T08:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度学习-基础知识">
+<meta name="twitter:description" content="前言  emmm…">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2018/09/15/深度学习-基础数学知识/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>深度学习-基础知识 | Pealing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pealing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/15/深度学习-基础数学知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pealing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pealing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深度学习-基础知识
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-15 08:00:00" itemprop="dateCreated datePublished" datetime="2018-09-15T08:00:00+00:00">2018-09-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<blockquote>
+<p>emmm…</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="线性代数"><a class="markdownIt-Anchor" href="#线性代数"></a> 线性代数</h1>
+<h2 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h2>
+<blockquote>
+<ul>
+<li>标量</li>
+</ul>
+</blockquote>
+<ul>
+<li>向量</li>
+<li>矩阵</li>
+<li>张量：一个数组中的元素分布在若干维坐标的规则网络中。</li>
+</ul>
+<h2 id="逆矩阵"><a class="markdownIt-Anchor" href="#逆矩阵"></a> 逆矩阵</h2>
+<blockquote>
+<p>A^(-1)A = I_n</p>
+</blockquote>
+<h4 id="存在条件"><a class="markdownIt-Anchor" href="#存在条件"></a> 存在条件</h4>
+<blockquote>
+<p>A是一个方阵，且所有列向量都是线性无关的，</p>
+<ol>
+<li>Ax = b (A是已知矩阵，x是未知向量，b是已知向量)<br>
+对于任意向量b都恰好存在一个解，即该矩阵至多有m个列向量。</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>矩阵的行列式不等于0</li>
+<li>矩阵为满秩矩阵</li>
+<li>R(A) = n(秩为n)</li>
+</ol>
+<h2 id="生成子空间"><a class="markdownIt-Anchor" href="#生成子空间"></a> 生成子空间</h2>
+<blockquote>
+<p>一组向量的生成子空间是原始向量线性组合后所能抵达的点的集合 (从原点A经过向量x，可以到达向量b，即b的集合)</p>
+</blockquote>
+<h2 id="线性无关"><a class="markdownIt-Anchor" href="#线性无关"></a> 线性无关</h2>
+<blockquote>
+<p>一组向量中的任意一个向量都不能表示成其他的向量的线性组合，则该组向量为线性无关<br>
+对于每一个向量b的取值都有解的充分必要条件：矩阵A必须包含至少一组m个线性无关的向量。</p>
+</blockquote>
+<h2 id="范数"><a class="markdownIt-Anchor" href="#范数"></a> 范数</h2>
+<blockquote>
+<p>将向量映射到非负值的函数。</p>
+</blockquote>
+<h4 id="范数满足条件"><a class="markdownIt-Anchor" href="#范数满足条件"></a> 范数满足条件：</h4>
+<blockquote>
+<ul>
+<li>f(x) = 0 =&gt; x= 0</li>
+</ul>
+</blockquote>
+<ul>
+<li>f(x+y) &lt;= f(x) + f(y)</li>
+<li>∀a∈R，f(ax)=|a|f(x)</li>
+</ul>
+<h4 id="欧几里得范数"><a class="markdownIt-Anchor" href="#欧几里得范数"></a> 欧几里得范数</h4>
+<blockquote>
+<p>表示从原点出发到向量x确定的点的欧几里得距离。表示为||x||</p>
+</blockquote>
+<h2 id="正交"><a class="markdownIt-Anchor" href="#正交"></a> 正交</h2>
+<blockquote>
+<p>X^Ty = 0 向量x和向量y互相正交。</p>
+</blockquote>
+<h4 id="正交矩阵"><a class="markdownIt-Anchor" href="#正交矩阵"></a> 正交矩阵</h4>
+<blockquote>
+<p>A^TA = AA^T = I<br>
+即 A^(-1) = A^T</p>
+</blockquote>
+<h2 id="特征值和特征向量"><a class="markdownIt-Anchor" href="#特征值和特征向量"></a> 特征值和特征向量</h2>
+<ul>
+<li>特征向量：
+<ul>
+<li>A的特征向量指，与A相乘后相当于对该向量进行缩放的非零向量v</li>
+<li>Av = Uv(U被称为这个特征向量对应的特征值)</li>
+<li>如果v是A的特征向量，任何缩放后的向量sv也是A的特征向量且与v有相同的特征值。</li>
+</ul>
+</li>
+<li>A = Q∧Q^T(Q是A的特征向量组成的正交矩阵，∧是对角矩阵)</li>
+<li>特征分解
+<ul>
+<li>特征向量v组合成一个矩阵，每一列是一个特征向量</li>
+<li>特征值连接成一个特征向量</li>
+<li>特征分解记作：A=Vdiag(U)V^(-1)</li>
+</ul>
+</li>
+</ul>
+<h2 id="奇异值分解"><a class="markdownIt-Anchor" href="#奇异值分解"></a> 奇异值分解</h2>
+<ul>
+<li>每一个矩阵不一定有特征分解，但都有一个奇异值分解</li>
+<li>奇异值和奇异向量</li>
+<li>A = UDV^(-1)
+<ul>
+<li>A是一个m<em>n的矩阵，U是一个m</em>m的矩阵，D是一个m<em>n的矩阵，V是一个n</em>n的矩阵。</li>
+<li>对角矩阵D对角线上的元素被称为奇异值，U的列向量称为左奇异向量，V称为右奇异向量。</li>
+<li>AA^T的特征向量是 <em>左奇异向量</em>， A^TA的特征向量是A的 <em>右奇异向量</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="迹运算"><a class="markdownIt-Anchor" href="#迹运算"></a> 迹运算</h2>
+<blockquote>
+<p>返回矩阵对角元素的和</p>
+</blockquote>
+<h2 id="行列式"><a class="markdownIt-Anchor" href="#行列式"></a> 行列式</h2>
+<blockquote>
+<p>det(A)<br>
+将方阵A映射到实数，行列式等于矩阵特征值的乘积。</p>
+</blockquote>
+<h2 id="矩阵的秩"><a class="markdownIt-Anchor" href="#矩阵的秩"></a> 矩阵的秩</h2>
+<blockquote>
+<ol>
+<li>记作 R(A)</li>
+<li>设矩阵A，有r阶子式不为0，任何r+1阶子式全为0，则称r为矩阵的秩。</li>
+<li>秩r是A中非零的子式的最高阶数</li>
+<li>秩是图像经过矩阵变换之后的空间维度</li>
+<li>秩是列空间的维度</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="概率分布"><a class="markdownIt-Anchor" href="#概率分布"></a> 概率分布</h1>
+<blockquote>
+<p>用来描述随机变量或一簇随机变量在每一个可能取到的状态的可能性大小。</p>
+</blockquote>
+<h2 id="联合概率分布"><a class="markdownIt-Anchor" href="#联合概率分布"></a> 联合概率分布</h2>
+<blockquote>
+<p>离散型变量的概率分布可以用到概率质量函数P(x)<br>
+概率质量函数可以同时作用于多个随机变量，这种多个变量的概率分布被称为联合概率分布P(X=x,Y=y)。</p>
+</blockquote>
+<h2 id="概率密度函数"><a class="markdownIt-Anchor" href="#概率密度函数"></a> 概率密度函数</h2>
+<blockquote>
+<p>对象是连续型随机变量时，我们用概率密度函数来描述它的概率分布。</p>
+</blockquote>
+<h2 id="边缘概率分布"><a class="markdownIt-Anchor" href="#边缘概率分布"></a> 边缘概率分布</h2>
+<blockquote>
+<p>已知一组变量的联合概率分布，其中一个子集的概率分布称为边缘概率分布</p>
+</blockquote>
+<h2 id="条件概率"><a class="markdownIt-Anchor" href="#条件概率"></a> 条件概率</h2>
+<blockquote>
+<p>P(Y=y|X=x) = P(Y=y, X=x)/P(X=x)</p>
+</blockquote>
+<h2 id="独立性和条件独立性"><a class="markdownIt-Anchor" href="#独立性和条件独立性"></a> 独立性和条件独立性</h2>
+<ul>
+<li>两个随机变量x和y，如果它们的概率分布可以表示成两个因子的成绩形式，则 <em>相互独立</em>:
+<ul>
+<li>P(X=x,Y=y) = P(X=x)P(Y=y)</li>
+</ul>
+</li>
+<li>如果关于x和Y的条件概率分布对于z的每一个值都可以写成乘积的形式，那么这两个随机变量x和y在给定随机变量z时是 <em>条件独立</em>
+<ul>
+<li>P(X=x,Y=y | Z=z) = P(X=x|Z=z)|P(Y=y|Z=z)</li>
+</ul>
+</li>
+<li>若两个变量相互独立，那么它们的协方差为0。</li>
+</ul>
+<h2 id="常见分布"><a class="markdownIt-Anchor" href="#常见分布"></a> 常见分布</h2>
+<ul>
+<li>Bernoulli分布(0-1分布)</li>
+<li>Multinoulli分布</li>
+<li>高斯分布(正态分布)</li>
+</ul>
+<h2 id="贝叶斯规则"><a class="markdownIt-Anchor" href="#贝叶斯规则"></a> 贝叶斯规则</h2>
+<blockquote>
+<p>P(x|y) = P(x)P(y|x)/P(y)<br>
+其中 P(y) = ∑x P(y|x)P(x)</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/22/数据结构/" rel="next" title="数据结构">
+                <i class="fa fa-chevron-left"></i> 数据结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/20/A Discriminatively Learned CNN Embedding for person re-id/" rel="prev" title="A Discriminatively Learned CNN Embedding for Person Re-identification 论文阅读笔记">
+                A Discriminatively Learned CNN Embedding for Person Re-identification 论文阅读笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Pealing">
+            
+              <p class="site-author-name" itemprop="name">Pealing</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Pealing" title="GitHub &rarr; https://github.com/Pealing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="/atom.xml" title="RSS &rarr; atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://yisaer.github.io/" title="http://yisaer.github.io/" rel="noopener" target="_blank">Yisa's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yyyyvan.github.io/" title="https://yyyyvan.github.io/" rel="noopener" target="_blank">Yvan's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rollroll.me/" title="https://rollroll.me/" rel="noopener" target="_blank">Roll's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://langt.top/" title="https://langt.top/" rel="noopener" target="_blank">Tangl's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性代数"><span class="nav-number">2.</span> <span class="nav-text"> 线性代数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">2.1.</span> <span class="nav-text"> 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逆矩阵"><span class="nav-number">2.2.</span> <span class="nav-text"> 逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存在条件"><span class="nav-number">2.2.0.1.</span> <span class="nav-text"> 存在条件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成子空间"><span class="nav-number">2.3.</span> <span class="nav-text"> 生成子空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性无关"><span class="nav-number">2.4.</span> <span class="nav-text"> 线性无关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范数"><span class="nav-number">2.5.</span> <span class="nav-text"> 范数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范数满足条件"><span class="nav-number">2.5.0.1.</span> <span class="nav-text"> 范数满足条件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧几里得范数"><span class="nav-number">2.5.0.2.</span> <span class="nav-text"> 欧几里得范数</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#正交"><span class="nav-number">2.6.</span> <span class="nav-text"> 正交</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正交矩阵"><span class="nav-number">2.6.0.1.</span> <span class="nav-text"> 正交矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征值和特征向量"><span class="nav-number">2.7.</span> <span class="nav-text"> 特征值和特征向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇异值分解"><span class="nav-number">2.8.</span> <span class="nav-text"> 奇异值分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迹运算"><span class="nav-number">2.9.</span> <span class="nav-text"> 迹运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行列式"><span class="nav-number">2.10.</span> <span class="nav-text"> 行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的秩"><span class="nav-number">2.11.</span> <span class="nav-text"> 矩阵的秩</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率分布"><span class="nav-number">3.</span> <span class="nav-text"> 概率分布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#联合概率分布"><span class="nav-number">3.1.</span> <span class="nav-text"> 联合概率分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率密度函数"><span class="nav-number">3.2.</span> <span class="nav-text"> 概率密度函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边缘概率分布"><span class="nav-number">3.3.</span> <span class="nav-text"> 边缘概率分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件概率"><span class="nav-number">3.4.</span> <span class="nav-text"> 条件概率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#独立性和条件独立性"><span class="nav-number">3.5.</span> <span class="nav-text"> 独立性和条件独立性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见分布"><span class="nav-number">3.6.</span> <span class="nav-text"> 常见分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯规则"><span class="nav-number">3.7.</span> <span class="nav-text"> 贝叶斯规则</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pealing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

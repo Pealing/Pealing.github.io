@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Yesteryear:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=7.1.2" color="#222">
+
+
+  <link rel="manifest" href="/uploads/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 这是用OPENCV&amp;amp;C++在VS环境下实现的一个手的手腕取出的代码 主要运用了最大内切圆和外接矩形来实现这一功能 获得的结果可以通过特征提取，利用SVM来做机器学习 总的来说分类效果还挺好的，可以达到99%的准确率">
+<meta name="keywords" content="C++,Opencv,手势识别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单环境中的手势分割代码">
+<meta property="og:url" content="http://yoursite.com/2017/03/15/简单环境中的手势分割代码/index.html">
+<meta property="og:site_name" content="Pealing&#39;s Blog">
+<meta property="og:description" content="概述 这是用OPENCV&amp;amp;C++在VS环境下实现的一个手的手腕取出的代码 主要运用了最大内切圆和外接矩形来实现这一功能 获得的结果可以通过特征提取，利用SVM来做机器学习 总的来说分类效果还挺好的，可以达到99%的准确率">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-03-15T13:19:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单环境中的手势分割代码">
+<meta name="twitter:description" content="概述 这是用OPENCV&amp;amp;C++在VS环境下实现的一个手的手腕取出的代码 主要运用了最大内切圆和外接矩形来实现这一功能 获得的结果可以通过特征提取，利用SVM来做机器学习 总的来说分类效果还挺好的，可以达到99%的准确率">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2017/03/15/简单环境中的手势分割代码/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>简单环境中的手势分割代码 | Pealing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pealing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/15/简单环境中的手势分割代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pealing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pealing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">简单环境中的手势分割代码
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-15 13:19:22" itemprop="dateCreated datePublished" datetime="2017-03-15T13:19:22+00:00">2017-03-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/图像识别/" itemprop="url" rel="index"><span itemprop="name">图像识别</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1>
+<pre><code>这是用OPENCV&amp;C++在VS环境下实现的一个手的手腕取出的代码
+主要运用了最大内切圆和外接矩形来实现这一功能
+获得的结果可以通过特征提取，利用SVM来做机器学习
+总的来说分类效果还挺好的，可以达到99%的准确率
+</code></pre>
+<a id="more"></a>
+<p><em>代码地址：</em><code>https://github.com/Pealing/Gesture-Recognition-Based-HU-Moments</code></p>
+<h3 id="图像预处理"><a class="markdownIt-Anchor" href="#图像预处理"></a> 图像预处理</h3>
+<h4 id="方法一rgb-灰度图-二值图"><a class="markdownIt-Anchor" href="#方法一rgb-灰度图-二值图"></a> 方法一：RGB-&gt;灰度图-&gt;二值图</h4>
+<pre><code>任何一种颜色可以在计算机中形成多种不同的色彩空间，常用的色彩空间有HIS模式，CMYK模式，YCbCr模式，Lab模式，HSV模式，NTSC模式等。 
+</code></pre>
+<p>通常，我们采用与彩色图像一样，反映了整幅图的整体和局部的色度和亮度等级的分布和特征的灰度图像来进行计算。将彩色图像转化为灰度图像的过程称为图像的灰度化处理。<br>
+直接利用OPENCV函数进行转换<br>
+<code>//原图_imgRaw，灰度图imgBin cvtColor(_imgRaw, imgBin, CV_BGR2GRAY);</code><br>
+接着，对灰度图进行操作得到二值图中，通过二值图所包含的图像信息可以获得手势的轮廓并进行特征提取。<br>
+在本次实验中，我们所获得的手势数据集处于黑色简单的背景环境中。灰度化处理后的手势图像有256个灰度级。由于背景为黑色，即灰度级为0，所以我们设定阈值为t，大于阈值的像素群的灰度值设置为255（白色），小于阈值的像素群则设置为0(黑色)。经过这样的二值化处理，我们可以得到仅有黑白两色的二值图，手势部分为白色，背景部分为黑色。<br>
+<code>//这里设置阈值为10 threshold(imgBin, imgBin, 10, 255, 0);</code></p>
+<hr>
+<h4 id="方法二利用hsv空间转换获得二值图"><a class="markdownIt-Anchor" href="#方法二利用hsv空间转换获得二值图"></a> 方法二：利用HSV空间转换获得二值图</h4>
+<pre><code>HSV是根据颜色直观特性创建的一种颜色空间，其中：
+* 色调H：取值范围0°~360°
+* 饱和度S：取值范围0%~100%
+* 明度V：取值范围0%~100%
+人的皮肤颜色有其一定的HSV值，因此在复杂的环境中，可以根据HSV颜色空间，来将手与周围环境分离。
+</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将RGB转换成HSV空间</span></span><br><span class="line">    cvtColor(img,hsv,CV_BGR2HSV);</span><br><span class="line">    <span class="built_in">vector</span>&lt;Mat&gt; a;</span><br><span class="line">    <span class="comment">//分离色彩通道</span></span><br><span class="line">    split(hsv,a);</span><br><span class="line">    Mat h=a[<span class="number">0</span>];</span><br><span class="line">    Mat s=a[<span class="number">1</span>];</span><br><span class="line">    Mat v=a[<span class="number">2</span>];</span><br><span class="line">    <span class="comment">//调节HSV值</span></span><br><span class="line">    inRange(h,<span class="number">6</span>,<span class="number">25</span>,a[<span class="number">0</span>]);</span><br><span class="line">    inRange(s,<span class="number">66</span>,<span class="number">200</span>,a[<span class="number">1</span>]);</span><br><span class="line">    inRange(v,<span class="number">60</span>,<span class="number">200</span>,a[<span class="number">2</span>]);</span><br><span class="line">    <span class="comment">//合并调节好的三个单通道图</span></span><br><span class="line">    bitwise_and(a[<span class="number">0</span>],a[<span class="number">1</span>],imb);bitwise_and(a[<span class="number">2</span>],imb,imb);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这种方法下的阈值可能要经常根据环境去做一个修改，算是比较麻烦的。</li>
+<li>如果各位有更好的，能够受环境因素影响较小的方法，欢迎github私我~</li>
+</ul>
+<hr>
+<h3 id="手掌定位和手腕分割"><a class="markdownIt-Anchor" href="#手掌定位和手腕分割"></a> 手掌定位和手腕分割</h3>
+<h4 id="确定手的轮廓"><a class="markdownIt-Anchor" href="#确定手的轮廓"></a> 确定手的轮廓</h4>
+<pre><code>这个方法比较简单也很常用，就是把二值图中的所有轮廓面积一个一个计算，选择最大的一个保留,剩下的全部用
+`drawContours(_imgBin, _contours, index, Scalar(0,0,0), -1, 8);`
+&quot;涂黑&quot;就可以了。
+
+或者，也可以新建一张图片
+`_imgBin = Mat::zeros(_imgRaw.rows, _imgRaw.cols, CV_8UC1);`此时图片是全黑的
+之后再图片中画上最大的轮廓：
+`drawContours(_imgBin, _contours, idxMax, Scalar(255, 255, 255), -1, 8)`
+</code></pre>
+<h4 id="手掌定位"><a class="markdownIt-Anchor" href="#手掌定位"></a> 手掌定位</h4>
+<pre><code>手掌定位的方法用的是寻找最大内切圆的方法，即：我们的手的轮廓（包括手臂部分）的最大内切圆即是我们手掌的位置。
+
+寻找最大内切圆方法：遍历图上的每一个像素点，找到白色的像素点（手）与轮廓上的点的一个最小距离。再比较所有获得的最小距离，取最大的一个，就是内切圆的半径，这个点就是最大内切圆的圆心。
+</code></pre>
+<ul>
+<li>代码如下：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> Gesture::_MaxCircleInContour(<span class="keyword">const</span> Contour&amp; contour, Point&amp; P, <span class="keyword">double</span>&amp; R)</span><br><span class="line">&#123;</span><br><span class="line">    P = Point(<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line">    R = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; _imgBin.rows; i += <span class="number">40</span>)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; _imgBin.cols; j += <span class="number">40</span>)</span><br><span class="line">            <span class="keyword">if</span> (_imgBin.at&lt;uchar&gt;(i, j) == <span class="number">255</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">double</span> minDist = <span class="number">1e66</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; (<span class="keyword">int</span>)contour.size(); k += <span class="number">4</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">double</span> thisDist = dist2(contour[k], Point(j, i));</span><br><span class="line">                    <span class="keyword">if</span> (thisDist &lt; minDist)</span><br><span class="line">                    &#123;</span><br><span class="line">                        minDist = thisDist;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (R &lt; minDist)</span><br><span class="line">                &#123;</span><br><span class="line">                    R = minDist;</span><br><span class="line">                    P = Point(j, i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="keyword">if</span> (R &gt; <span class="number">0</span>) </span><br><span class="line">        R = sqrtf(R);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用遍历图上每个点方法来寻找最大内切圆，讲道理，在超级高分辨率的摄像头下是挺慢的。但是目前似乎没有更好的方法？求数学大牛快想出一个新的解法吧！</li>
+</ul>
+<hr>
+<h4 id="手腕冗余信息的去除"><a class="markdownIt-Anchor" href="#手腕冗余信息的去除"></a> 手腕冗余信息的去除</h4>
+<pre><code>手掌定位以后，很好，我们去除手腕的工作就完成了一大半。接下来，如何去除手腕，这个光我见过的方法就有好几种。
+</code></pre>
+<ul>
+<li>
+<p>第一种是最简单的，穿个黑色的衣服，在黑色的背景下，手臂自然就会被除掉，当然在这种方法下，上述的手掌定位也就没有什么必要了。</p>
+</li>
+<li>
+<p>第二种是这样的，人们认为：掌心的位置是&quot;中指指尖到手腕连线的3/4处&quot;，所以遍历一遍手掌轮廓，找到一个与掌心距离最远的点（且认为它是中指），连接他跟掌心的直线，距离dist（点，掌心）/3*4,其中dist()代表欧氏距离。</p>
+<ul>
+<li>但是这种方法有一个弊端：如果我们的手臂很长，或者是我们的手势是个拳头（没有较长的手指出现），那找到的这个最远点就会出错。</li>
+</ul>
+</li>
+<li>
+<p>第三种，就是我这个小菜比自己开脑洞想的法子啦：利用外接矩形的方法来去除掉我们的手掌。</p>
+</li>
+</ul>
+<h5 id="算法思想"><a class="markdownIt-Anchor" href="#算法思想"></a> 算法思想</h5>
+<ol>
+<li>给轮廓画一个外接矩形<code>Rect rect2 = boundingRect(_contours[idxMax]);</code>，该外接矩形平行于屏幕</li>
+<li><code>Point tl = rect2.tl();//矩形的左上方顶点 Point br = rect2.br();//矩形的右下方顶点</code></li>
+<li>手在屏幕中有4中出现情况：从屏幕的4条边框出现，也就是说，手的手腕方向永远都是与屏幕边缘通向的，即外接矩形的其中一条边是与屏幕重合的。</li>
+<li>此时我们就对矩形的顶点做一个判断，在边缘处的边即为手臂的边。此时我们把这条边像掌心位置靠拢，一直靠拢到与掌心的欧氏距离为1.5R，这个时候，我们就可以将手臂去除到我们的矩形之外了。超级厉害有木有（并不）~</li>
+<li>此时我们将矩形用<code>rectangle(imgBin,rect2,Scalar(0,0,0),-1);</code>涂黑，图片中唯一剩下的轮廓就是我们要去除的手臂啦，然后把手部分&quot;涂黑&quot;去除，再把手掌部分恢复，我们就可以得到去掉手臂的手掌啦~</li>
+</ol>
+<p>具体代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line">bool Gesture::GetPalmImage()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    // 二值化</span><br><span class="line">    _GetBinaryImage(_imgBin);</span><br><span class="line"></span><br><span class="line">    // 在二值图中找出所有的轮廓</span><br><span class="line">    Mat imgBin = _imgBin.clone();</span><br><span class="line">    findContours(imgBin, _contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);</span><br><span class="line"></span><br><span class="line">    // 若没有轮廓，返回false</span><br><span class="line">    if (_contours.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;[错误] 未找到轮廓。&quot; &lt;&lt; std::endl;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    //// 【蓝色】所有找到的轮廓</span><br><span class="line">    //drawContours(_imgRaw, _contours, -1, Scalar(255, 0, 0), 2, 8);</span><br><span class="line"></span><br><span class="line">    // 找到最大的轮廓（手）</span><br><span class="line">    int idxMax = _MaxContourIndex(_contours);</span><br><span class="line">    //// 【绿色】手的轮廓</span><br><span class="line">    //drawContours(_imgRaw, _contours, 0, Scalar(0, 255, 0), 2, 8);</span><br><span class="line"></span><br><span class="line">    // 在二值图中画出填充的最大轮廓</span><br><span class="line">    _imgBin = Mat::zeros(_imgRaw.rows, _imgRaw.cols, CV_8UC1);</span><br><span class="line">    drawContours(_imgBin, _contours, idxMax, Scalar(255, 255, 255), -1, 8);</span><br><span class="line">    // 找到轮廓内最大圆的圆心P及半径R</span><br><span class="line">    Point P;</span><br><span class="line">    double R;</span><br><span class="line">    _MaxCircleInContour(_contours[idxMax], P, R);</span><br><span class="line">    if (R &lt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;[错误] 未找到圆心及半径。&quot; &lt;&lt; std::endl;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 记录中心点及半径</span><br><span class="line">    _Center = P;</span><br><span class="line">    _CenterRadius = R;</span><br><span class="line"></span><br><span class="line">    //画外接矩阵</span><br><span class="line"></span><br><span class="line">    Rect rect2 = boundingRect(_contours[idxMax]);</span><br><span class="line">    rectangle(_imgRaw,rect2,Scalar(255,0,0),3);</span><br><span class="line">    Point tl = rect2.tl();</span><br><span class="line">    Point br = rect2.br();</span><br><span class="line"></span><br><span class="line">//利用外接矩阵切割手掌&#123;</span><br><span class="line">    int index = -1;</span><br><span class="line">    Point indexPoint;</span><br><span class="line">    if(br.y &gt;= _imgRaw.rows - 5)</span><br><span class="line">    &#123;</span><br><span class="line">        rect2.width = abs(tl.y - P.y) + 1.5 * R;</span><br><span class="line">        indexPoint = rect2.br();;</span><br><span class="line">        index = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (br.x &gt;= _imgRaw.cols - 5)</span><br><span class="line">    &#123;</span><br><span class="line">        rect2.width = abs(tl.x - P.x) + 1.5 * R;</span><br><span class="line">        indexPoint = rect2.br();;</span><br><span class="line">        index = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(tl.x &lt;= 5)</span><br><span class="line">    &#123;</span><br><span class="line">        rect2.x = (br.x - P.x);</span><br><span class="line">        rect2.width = (br.x - P.x); + 1.5 * R;</span><br><span class="line">        indexPoint = rect2.tl();</span><br><span class="line">        index = 2;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(tl.y &lt;= 5)</span><br><span class="line">    &#123;</span><br><span class="line">        rect2.x = (br.y - P.y);</span><br><span class="line">        rect2.width = (br.y - P.y); +1.5 *  R;</span><br><span class="line">        indexPoint = rect2.tl();</span><br><span class="line">        index = 3;</span><br><span class="line">    &#125;</span><br><span class="line">    rectangle(_imgRaw,rect2,Scalar(255,255,0),3);</span><br><span class="line">//&#125;利用外接矩阵切割手掌</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    // 用背景色（黑色）填充手掌矩形</span><br><span class="line">    imgBin = _imgBin.clone();</span><br><span class="line">    rectangle(imgBin,rect2,Scalar(0,0,0),-1);</span><br><span class="line"></span><br><span class="line">    // 【紫色】最大圆及圆心</span><br><span class="line">    circle(_imgRaw, P, (int)R, Scalar(255, 0, 255), 4);</span><br><span class="line">    circle(_imgRaw, P, 10, Scalar(255, 0, 255), -1);</span><br><span class="line"></span><br><span class="line">    // 寻找此时imgBin中的轮廓</span><br><span class="line">    vector&lt;Contour&gt; newContours;</span><br><span class="line">    findContours(imgBin, newContours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);</span><br><span class="line">    if (newContours.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;[错误] 填充矩形后，未找到轮廓。&quot; &lt;&lt; std::endl;</span><br><span class="line">        imgBin = _imgBin.clone();</span><br><span class="line">        _contours.clear();</span><br><span class="line">        findContours(imgBin, _contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);</span><br><span class="line">        // 【红色】手掌轮廓</span><br><span class="line">        drawContours(_imgRaw, _contours, 0, Scalar(0, 0, 255), 4, 8);</span><br><span class="line"></span><br><span class="line">        if(br.y &gt;= _imgRaw.rows - 5 || br.x &gt;= _imgRaw.cols - 5)</span><br><span class="line">            indexPoint = br;</span><br><span class="line">        else if(tl.x &lt;= 5 || tl.y &lt;= 5) </span><br><span class="line">            indexPoint = tl;</span><br><span class="line">        GetPalmPoint(_contours[0],indexPoint,index,_imgRaw.rows,_imgRaw.cols);</span><br><span class="line">        AddPoint();</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 删除所有与边界接触</span><br><span class="line">    // 删除方式为，在内部二值图，用黑色填充</span><br><span class="line">    double area_level = acos(-1) * R * R * 0.25;</span><br><span class="line">    Contour deleteContour = _contours[idxMax];</span><br><span class="line">    for(int i=0;i&lt;(int)newContours.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Contour &amp;thisContour = newContours[i];</span><br><span class="line">        if(_TouchedWithBoundary(thisContour, imgBin.rows, imgBin.cols))</span><br><span class="line">        &#123;</span><br><span class="line">            HaveForearm  = true;</span><br><span class="line">            drawContours(_imgBin, newContours, i, Scalar(0, 0, 0), -1, 8);</span><br><span class="line">            deleteContour = thisContour;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 再次寻找手轮廓</span><br><span class="line">    imgBin = _imgBin.clone();</span><br><span class="line">    _contours.clear();</span><br><span class="line">    findContours(imgBin, _contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);</span><br><span class="line"></span><br><span class="line">    if (_contours.size() != 1u)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;[错误] 再次寻找手轮廓时出错，此时应该有且只有一个轮廓。&quot; &lt;&lt; std::endl;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if (_contours[0].empty())</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;[错误] 再次寻找手轮廓时出错，找到唯一一个轮廓但是为空。&quot; &lt;&lt; std::endl;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 【红色】手掌轮廓</span><br><span class="line">    drawContours(_imgRaw, _contours, 0, Scalar(0, 0, 255), 4, 8);</span><br><span class="line">    //寻找手腕点</span><br><span class="line">    GetPalmPoint(_contours[0],indexPoint,index,_imgRaw.rows,_imgRaw.cols);</span><br><span class="line">    AddPoint();</span><br><span class="line"></span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>至此，我们的代码也就讲解完成啦，后期博主会上点图片美化一下哒</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/Opencv/" rel="tag"># Opencv</a>
+          
+            <a href="/tags/手势识别/" rel="tag"># 手势识别</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/11/冬季·数据库复习提纲/" rel="next" title="冬季·数据库复习提纲">
+                <i class="fa fa-chevron-left"></i> 冬季·数据库复习提纲
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/19/leetcode-476-Number-Complement/" rel="prev" title="leetcode 476. Number Complement">
+                leetcode 476. Number Complement <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Pealing">
+            
+              <p class="site-author-name" itemprop="name">Pealing</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Pealing" title="GitHub &rarr; https://github.com/Pealing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="/atom.xml" title="RSS &rarr; atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://yisaer.github.io/" title="http://yisaer.github.io/" rel="noopener" target="_blank">Yisa's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yyyyvan.github.io/" title="https://yyyyvan.github.io/" rel="noopener" target="_blank">Yvan's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rollroll.me/" title="https://rollroll.me/" rel="noopener" target="_blank">Roll's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://langt.top/" title="https://langt.top/" rel="noopener" target="_blank">Tangl's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"> 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像预处理"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 图像预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一rgb-灰度图-二值图"><span class="nav-number">1.0.1.1.</span> <span class="nav-text"> 方法一：RGB-&gt;灰度图-&gt;二值图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二利用hsv空间转换获得二值图"><span class="nav-number">1.0.1.2.</span> <span class="nav-text"> 方法二：利用HSV空间转换获得二值图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手掌定位和手腕分割"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 手掌定位和手腕分割</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确定手的轮廓"><span class="nav-number">1.0.2.1.</span> <span class="nav-text"> 确定手的轮廓</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手掌定位"><span class="nav-number">1.0.2.2.</span> <span class="nav-text"> 手掌定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手腕冗余信息的去除"><span class="nav-number">1.0.2.3.</span> <span class="nav-text"> 手腕冗余信息的去除</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法思想"><span class="nav-number">1.0.2.3.1.</span> <span class="nav-text"> 算法思想</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pealing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
